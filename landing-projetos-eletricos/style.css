@@ -1,0 +1,192 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Cabeçalho */
+header {
+  background-color: #0a0a23;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #00ffcc;
+}
+
+/* Rodapé */
+footer {
+  background-color: #0a0a23;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+/* Container padrão para centralizar conteúdo */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* Seção Sobre */
+#sobre {
+  background-color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#sobre h2 {
+  font-size: 32px;
+  color: #0a0a23;
+  margin-bottom: 20px;
+}
+
+#sobre p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 15px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Seção Serviços */
+#servicos {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#servicos h2 {
+  font-size: 32px;
+  color: #0a0a23;
+  margin-bottom: 40px;
+}
+
+.cards-servicos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+/* Cards */
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  font-size: 20px;
+  color: #0a0a23;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 16px;
+  color: #555;
+}
+
+.card i {
+  color: #0a0a23;
+  margin-bottom: 15px;
+}
+
+.btn-card {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #0a0a23;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn-card:hover {
+  background-color: #00ccaa;
+}
+
+/* Seção Contato */
+#contato {
+  background-color: #fff;
+  padding: 60px 20px;
+}
+
+#contato h2 {
+  text-align: center;
+  color: #0a0a23;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+form {
+  max-width: 700px;
+  margin: auto;
+}
+
+.campo {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.campo input:focus,
+.campo textarea:focus,
+.campo select:focus {
+  border-color: #0a0a23;
+  outline: none;
+}
