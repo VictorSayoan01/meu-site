@@ -41,8 +41,9 @@ body {
 .menu-centralizado ul {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
   padding: 0;
   margin: 0;
 }
@@ -55,6 +56,7 @@ body {
   padding: 10px 20px;
   border-radius: 5px;
   transition: background-color 0.3s;
+  white-space: nowrap;
 }
 
 .menu-centralizado a:hover {
@@ -62,11 +64,11 @@ body {
 }
 
 .logo-servico {
-  max-width: 400px;
-  margin-bottom: 0px;
+  width: 100%;
+  max-width: 250px;
+  height: auto;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 20px auto;
 }
 
 /* Rodapé */
