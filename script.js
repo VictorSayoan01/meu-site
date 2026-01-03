@@ -42,9 +42,10 @@ function iniciarSlider(id) {
   setInterval(() => {
     index = (index + 1) % imagens.length;
     atualizarSlider();
-  }, 3000);
+  }, 300);
 }
 
 // Ativar o slider
-iniciarSlider("slider-image");
+iniciarSlider("slider-image01");
+iniciarSlider("slider-image02");
 console.log("Carrossel iniciado");
