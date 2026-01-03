@@ -48,4 +48,5 @@ function iniciarSlider(id) {
 // Ativar o slider
 iniciarSlider("slider-image01");
 iniciarSlider("slider-image02");
+iniciarSlider("slider-image03");
 console.log("Carrossel iniciado");
