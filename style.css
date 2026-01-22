@@ -435,8 +435,9 @@ form {
 
 /* ---------------- Cabeçalho fixo ---------------- */
 .cabecalho {
-  background-color: #003366;
-  padding: 20px 40px;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+              url('../meu-site/assets/img/subestacao.png') center/cover no-repeat;
+  padding: 40px 40px;
   color: #fff;
   position: sticky;
   top: 0;
