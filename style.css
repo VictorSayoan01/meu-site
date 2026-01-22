@@ -6,13 +6,12 @@
 }
 
 body {
+  background: linear-gradient(to bottom, #f7f9fc, #eaeff5);
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
   color: #333;
   line-height: 1.6;
 }
-
-/* Cabeçalho */
+/* ---------------- Cabeçalho ---------------- */
 .hero {
   background-image: url('assets/img/servicos2.png');
   background-size: cover;
@@ -36,7 +35,6 @@ body {
   font-size: 20px;
   margin-bottom: 20px;
 }
-
 
 .menu-centralizado ul {
   list-style: none;
@@ -71,7 +69,7 @@ body {
   margin: 0 auto 20px auto;
 }
 
-/* Rodapé */
+/* ---------------- Rodapé ---------------- */
 footer {
   background-color: #0a0a23;
   color: #fff;
@@ -80,14 +78,14 @@ footer {
   margin-top: 40px;
 }
 
-/* Container padrão para centralizar conteúdo */
+/* ---------------- Containers ---------------- */
 .container {
-  max-width: 1000px;
+  max-width: 100%;
   margin: auto;
-  padding: 40px 20px;
+  padding: 40px 40px;
 }
 
-/* Seção Sobre */
+/* ---------------- Sobre Mim ---------------- */
 #sobre {
   background-color: #fff;
   padding: 60px 20px;
@@ -109,7 +107,40 @@ footer {
   margin-right: auto;
 }
 
-/* Seção Serviços */
+.sobre-mim {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.foto-perfil {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 3px solid #0a0a23;
+}
+
+.texto {
+  max-width: 600px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .sobre-mim {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .texto {
+    text-align: center;
+  }
+}
+
+/* ---------------- Serviços ---------------- */
 #servicos {
   background-color: #f9f9f9;
   padding: 60px 20px;
@@ -137,7 +168,6 @@ footer {
   transition: all 0.6s ease;
 }
 
-/* Cards */
 .card:hover {
   transform: translateY(-5px) scale(1.03);
   box-shadow: 0 8px 16px rgba(0, 255, 204, 0.2);
@@ -155,11 +185,7 @@ footer {
   color: #555;
 }
 
-.card i {
-  color: #0a0a23;
-  margin-bottom: 15px;
-}
-
+/* ---------------- Botão ---------------- */
 .btn-card {
   display: inline-block;
   margin-top: 15px;
@@ -175,7 +201,7 @@ footer {
   background-color: #00ccaa;
 }
 
-/* Seção Contato */
+/* ---------------- Contato ---------------- */
 #contato {
   background-color: #fff;
   padding: 60px 20px;
@@ -221,7 +247,7 @@ form {
   outline: none;
 }
 
-/* Botão flutuante do WhatsApp */
+/* ---------------- WhatsApp ---------------- */
 .whatsapp-float {
   position: fixed;
   width: 60px;
@@ -243,94 +269,193 @@ form {
   transform: scale(1.1);
 }
 
-/* Imagens dos cards*/
+/* ---------------- Carrossel estilo Netflix ---------------- */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
 .grid-projetos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 30px 10px;
+}
+
+.grid-projetos::-webkit-scrollbar {
+  height: 10px;
+}
+
+.grid-projetos::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+.grid-projetos::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
 }
 
 .card-projeto {
+  flex: 0 0 450px;
+  height: 550px;
   background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-/* Garanta que o slider dentro do card ocupe o tamanho certo */
-.slider-container {
+  border-radius: 12px;
   overflow: hidden;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto 15px;
+  position: relative;
+  transition: transform 0.3s ease;
+  animation: fadeUp 0.8s ease forwards;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
 }
 
-.slider {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
+.card-projeto:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.slider img {
+.card-projeto img {
   width: 100%;
-  height: 250px;
+  height: 100%;
   object-fit: cover;
-  flex-shrink: 0;
+  display: block;
 }
 
-
-.dots {
+.card-projeto h3 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 600;
   text-align: center;
-  margin-top: 10px;
 }
 
-.dots button {
-  background-color: #bbb;
+/* Animação */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Setas do carrossel */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
   border: none;
+  font-size: 28px;
+  padding: 12px;
   border-radius: 50%;
-  width: 12px;
-  height: 12px;
-  margin: 0 5px;
   cursor: pointer;
+  z-index: 10;
   transition: background-color 0.3s;
 }
 
-.dots button.active {
+.scroll-btn {
+  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+
+.scroll-btn:hover {
+  background-color: #00ccaa;
+}
+
+.scroll-btn.left {
+  left: 15px;
+}
+
+.scroll-btn.right {
+  right: 15px;
+}
+
+/* ---------------- Botão voltar ---------------- */
+.btn-card {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 24px;
   background-color: #0a0a23;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s;
 }
 
-/* Seção: Sobre mim*/
-.sobre-mim {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
+.btn-card:hover {
+  background-color: #00ccaa;
 }
 
-.foto-perfil {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
+/* ---------------- WhatsApp ---------------- */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+.whatsapp-float img {
+  width: 100%;
+  height: auto;
   border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  border: 3px solid #0a0a23;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
 
-.texto {
-  max-width: 600px;
-  text-align: left;
+.whatsapp-float img:hover {
+  transform: scale(1.1);
 }
 
+/* ---------------- Responsivo ---------------- */
 @media (max-width: 768px) {
-  .sobre-mim {
-    flex-direction: column;
-    text-align: center;
+  .card-projeto {
+    flex: 0 0 80%;
+    height: 400px;
   }
 
-  .texto {
-    text-align: center;
+  .card-projeto h3 {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .scroll-btn {
+    display: none;
   }
 }
 
+/* ---------------- Cabeçalho fixo ---------------- */
+.cabecalho {
+  background-color: #003366;
+  padding: 20px 40px;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.cabecalho-conteudo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo-header {
+  height: 60px;
+  width: auto;
+}
+
+.titulo-header {
+  font-size: 24px;
+  font-weight: bold;
+}

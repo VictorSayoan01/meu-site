@@ -5,67 +5,68 @@
   <title>Projetos - Subestação até 69 kV</title>
   <link rel="stylesheet" href="../style.css">
 </head>
-
 <body>
 
-    <!-- Botão do WhatsApp -->
-    <a href="https://wa.me/5583986422752" class="whatsapp-float" target="_blank" aria-label="Whatsapp">
-        <img src="../assets/img/whatsapp-icon.png" alt="WhatsApp" />
-    </a>
+    <header class="cabecalho">
+        <div class="cabecalho-conteudo">
+            <img src="../assets/img/logo.png" alt="Logo" class="logo-header">
+            <h1 class="titulo-header">Projetos de Subestação</h1>
+        </div>
+    </header>
 
-    <div class="container">
-    <h1>Projetos de Subestação</h1>
-    <p>Aqui você pode ver alguns dos projetos que desenvolvi nesta categoria:</p>
+  <!-- Botão do WhatsApp -->
+  <a href="https://wa.me/5583986422752" class="whatsapp-float" target="_blank" aria-label="Whatsapp">
+    <img src="../assets/img/whatsapp-icon.png" alt="WhatsApp" />
+  </a>
 
-        <div class="grid-projetos">
-            <div class="card-projeto">
-                <div class="slider-container">
-                    <div class="slider" id="slider-image01">
-                        <img src="../assets/img/PROJETO SUBESTAÇÃO - Vista 3D - VISTA 3D - ESTRUTURA DA SUB.jpg" alt="Imagem 1">
-                        <img src="../assets/img/PROJETO SUBESTAÇÃO - Vista 3D - VISTA 3D - PONTO DE ENTREGA.jpg" alt="Imagem 2">
-                        <img src="../assets/img/PROJETO SUBESTAÇÃO - Vista 3D - VISTA 3D - PONTO DE LIGAÇÃO.jpg" alt="Imagem 3">
-                        <img src="../assets/img/PROJETO SUBESTAÇÃO - Vista 3D - VISTA 3D - SUBESTAÇÃO.jpg" alt="Imagem 4">
-                    </div>
-                <div class="dots" id="dots-slider-image"></div>
-            </div>
-            <h3>Projeto de Subestação de 300 kVA</h3>
+  <div class="container">
+    
+    <!-- Wrapper estilo Netflix -->
+    <div class="carousel-wrapper">
+      <!-- Botão Esquerda -->
+      <button class="scroll-btn left" onclick="scrollCarousel('carousel-sub', -1)">&#10094;</button>
+
+      <!-- Carrossel de Projetos -->
+      <div class="grid-projetos" id="carousel-sub">
+        <!-- CARD 1 -->
+        <div class="card-projeto">
+          <img src="../assets/img/PROJETO SUBESTAÇÃO - Vista 3D - VISTA 3D - SUBESTAÇÃO.jpg" alt="Subestação 300 kVA">
+          <h3>Subestação de 300 kVA</h3>
         </div>
 
-            <div class="card-projeto">
-                <div class="slider-container">
-                    <div class="slider" id="slider-image02">
-                        <img src="../assets/img/subetacao_45kVA/PROJETO ELÉTRICO - SUBESTAÇÃO AÉREA - Vista 3D - VISTA 3D - PADRÃO DE MEDIÇÃO.jpg" alt="Imagem 1">
-                        <img src="../assets/img/subetacao_45kVA/PROJETO ELÉTRICO - SUBESTAÇÃO AÉREA - Vista 3D - VISTA 3D - RAMAL DE LIGAÇÃO.jpg" alt="Imagem 2">
-                        <img src="../assets/img/subetacao_45kVA/PROJETO ELÉTRICO - SUBESTAÇÃO AÉREA - Vista 3D - VISTA 3D - TRAFO.jpg" alt="Imagem 3">
-                        <img src="../assets/img/subetacao_45kVA/PROJETO ELÉTRICO - SUBESTAÇÃO AÉREA - Vista 3D - VISTA 3D -VISTA DE DENTRO.jpg" alt="Imagem 4">
-                        <img src="../assets/img/subetacao_45kVA/PROJETO ELÉTRICO - SUBESTAÇÃO AÉREA - Vista 3D - VISTA 3D.jpg" alt="Imagem 5">
-                        <img src="../assets/img/subetacao_45kVA/PROJETO ELÉTRICO - SUBESTAÇÃO AÉREA - Vista 3D - {3D}.jpg" alt="Imagem 6">
-                    
-                    </div>
-                <div class="dots" id="dots-slider-image"></div>
-                </div>
-                <h3>Projeto de Subestação de 45 kVA</h3>
-            </div>
-
-            <div class="card-projeto">
-                <div class="slider-container">
-                    <div class="slider" id="slider-image03">
-                        <img src="../assets/img/subestacao_2,5MVA/PROJETO ELÉTRICO - SUBESTAÇÃO-DESKTOP-H3M4O9N - Vista 3D - PONTO DE TRANSFORMAÇÃO.jpg" alt="Imagem 1">
-                        <img src="../assets/img/subestacao_2,5MVA/PROJETO ELÉTRICO - SUBESTAÇÃO-DESKTOP-H3M4O9N - Vista 3D - ATERRAMENTO - CUBÍCULO DE TRANSFORMAÇÃO.jpg" alt="Imagem 2">
-                        <img src="../assets/img/subestacao_2,5MVA/PROJETO ELÉTRICO - SUBESTAÇÃO-DESKTOP-H3M4O9N - Vista 3D - CONEXÃO COM A REDE.jpg" alt="Imagem 3">
-                        <img src="../assets/img/subestacao_2,5MVA/PROJETO ELÉTRICO - SUBESTAÇÃO-DESKTOP-H3M4O9N - Vista 3D - PONTO DE DERIVAÇÃO.jpg" alt="Imagem 4">
-                        <img src="../assets/img/subestacao_2,5MVA/PROJETO ELÉTRICO - SUBESTAÇÃO-DESKTOP-H3M4O9N - Vista 3D - {3D}.jpg" alt="Imagem 5">
-                        <img src="../assets/img/subestacao_2,5MVA/PROJETO ELÉTRICO - SUBESTAÇÃO-DESKTOP-H3M4O9N - Vista 3D - ATERRAMENTO - CUBÍCULO DE DERIVAÇÃO EM MÉDIA TENSÃO.jpg" alt="Imagem 6">
-                    </div>
-                <div class="dots" id="dots-slider-image"></div>
-                </div>
-                <h3>Projeto de Subestação de 1,5 MVA</h3>
-            </div>
+        <!-- CARD 2 -->
+        <div class="card-projeto">
+          <img src="../assets/img/subetacao_45kVA/PROJETO ELÉTRICO - SUBESTAÇÃO AÉREA - Vista 3D - VISTA 3D - TRAFO.jpg" alt="Subestação 45 kVA">
+          <h3>Subestação de 45 kVA</h3>
         </div>
+
+        <!-- CARD 3 -->
+        <div class="card-projeto">
+          <img src="../assets/img/subestacao_2,5MVA/PROJETO ELÉTRICO - SUBESTAÇÃO-DESKTOP-H3M4O9N - Vista 3D - {3D}.jpg" alt="Subestação 2,5 MVA">
+          <h3>Subestação de 2,5 MVA</h3>
+        </div>
+
+        <!-- Adicione mais cards aqui se quiser -->
+      </div>
+
+      <!-- Botão Direita -->
+      <button class="scroll-btn right" onclick="scrollCarousel('carousel-sub', 1)">&#10095;</button>
+    </div>
 
     <a href="../index.html" class="btn-card">← Voltar à Home</a>
   </div>
 
-<script src="../script.js"></script>
+  <!-- Script de rolagem -->
+  <script>
+    function scrollCarousel(containerId, direction) {
+      const container = document.getElementById(containerId);
+      const card = container.querySelector('.card-projeto');
+      const cardWidth = card.offsetWidth + 30; // largura + gap
+      container.scrollBy({
+        left: direction * cardWidth,
+        behavior: 'smooth'
+      });
+    }
+  </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
-// Formulário para WhatsApp
-document.getElementById('form-contato').addEventListener('submit', function(e) {
+// Função para envio de formulário via WhatsApp
+document.getElementById('form-contato')?.addEventListener('submit', function(e) {
   e.preventDefault();
 
   const nome = document.getElementById('nome').value.trim();
@@ -14,39 +14,9 @@ document.getElementById('form-contato').addEventListener('submit', function(e) {
 });
 
 
-// Função de carrossel com paginadores
-function iniciarSlider(id) {
-  const slider = document.getElementById(id);
-  const imagens = slider.querySelectorAll('img');
-  const dotsContainer = document.getElementById(`dots-${id}`);
-  let index = 0;
-
-  imagens.forEach((_, i) => {
-    const dot = document.createElement('button');
-    if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => {
-      index = i;
-      atualizarSlider();
-    });
-    dotsContainer.appendChild(dot);
-  });
-
-  const dots = dotsContainer.querySelectorAll('button');
-
-  function atualizarSlider() {
-    slider.style.transform = `translateX(-${index * 100}%)`;
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[index].classList.add('active');
-  }
-
-  setInterval(() => {
-    index = (index + 1) % imagens.length;
-    atualizarSlider();
-  }, 300);
+// --- Carrossel tipo Netflix com rolagem horizontal por setas ---
+function scrollProjetos(direction) {
+  const container = document.querySelector('.grid-projetos');
+  const scrollAmount = container.offsetWidth / 2;
+  container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
 }
-
-// Ativar o slider
-iniciarSlider("slider-image01");
-iniciarSlider("slider-image02");
-iniciarSlider("slider-image03");
-console.log("Carrossel iniciado");
