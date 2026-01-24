@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Projetos de Comandos Elétricos</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <div class="cabecalho-conteudo">
+            <img src="../assets/img/logo.png" alt="Logo" class="logo-header">
+            <h1 class="titulo-header">Projetos de Comandos Elétricos</h1>
+        </div>
+    </header>
+
+  <!-- Botão do WhatsApp -->
+  <a href="https://wa.me/5583986422752" class="whatsapp-float" target="_blank" aria-label="Whatsapp">
+    <img src="../assets/img/whatsapp-icon.png" alt="WhatsApp" />
+  </a>
+
+  <div class="container">
+    
+    <!-- Wrapper estilo Netflix -->
+    <div class="carousel-wrapper">
+      <!-- Botão Esquerda -->
+      <button class="scroll-btn left" onclick="scrollCarousel('carousel-com', -1)">&#10094;</button>
+
+      <!-- Carrossel de Projetos -->
+      <div class="grid-projetos" id="carousel-com">
+        <!-- CARD 1 -->
+        <div class="card-projeto">
+          <img src="../assets/img/Comandos_Eletricos/Image1.png" alt="Comando01">
+          <h3>Acionamento Automático de Luminárias Industriais</h3>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card-projeto">
+          <img src="../assets/img/Projetos_Inst_Elet/Residencial02/Image1.png" alt="Comando02">
+          <h3>Projeto Elétrico Residencial - Alto Padrão</h3>
+        </div>
+
+        <!-- Adicione mais cards aqui se quiser -->
+      </div>
+
+      <!-- Botão Direita -->
+      <button class="scroll-btn right" onclick="scrollCarousel('carousel-com', 1)">&#10095;</button>
+    </div>
+
+    <a href="../index.html" class="btn-card">← Voltar à Home</a>
+  </div>
+
+  <!-- Script de rolagem -->
+  <script>
+    function scrollCarousel(containerId, direction) {
+      const container = document.getElementById(containerId);
+      const card = container.querySelector('.card-projeto');
+      const cardWidth = card.offsetWidth + 30; // largura + gap
+      container.scrollBy({
+        left: direction * cardWidth,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+</body>
+</html>
