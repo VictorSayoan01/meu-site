@@ -369,6 +369,15 @@ form {
   }
 }
 
+@media(max-width:768px){
+  .grid-projetos{
+    scroll-snap-type: x mandatory;
+  }
+  .card-projeto{
+    scroll-snap-align: center;
+  }
+}
+
 /* Animação */
 @keyframes fadeUp {
   from {
