@@ -20,3 +20,38 @@ function scrollProjetos(direction) {
   const scrollAmount = container.offsetWidth / 2;
   container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
 }
+
+// --------- Animação dos Indicadores (Count Up) ---------
+const indicadores = document.querySelectorAll('.numero');
+
+const animarIndicadores = () => {
+  indicadores.forEach(indicador => {
+    const alvo = +indicador.getAttribute('data-target');
+    let valor = 0;
+    const incremento = Math.ceil(alvo / 80);
+
+    const contador = setInterval(() => {
+      valor += incremento;
+      if (valor >= alvo) {
+        indicador.textContent = alvo;
+        clearInterval(contador);
+      } else {
+        indicador.textContent = valor;
+      }
+    }, 20);
+  });
+};
+
+// Ativar quando a seção aparecer na tela
+const secaoIndicadores = document.getElementById('indicadores');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animarIndicadores();
+      observer.disconnect(); // roda só uma vez
+    }
+  });
+}, { threshold: 0.4 });
+
+observer.observe(secaoIndicadores);
