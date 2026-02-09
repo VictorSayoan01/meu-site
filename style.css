@@ -672,3 +672,100 @@ form {
   }
 }
 
+/* ---------------- Depoimentos ---------------- */
+#depoimentos {
+  background: #ffffff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+#depoimentos h2 {
+  font-size: 32px;
+  color: #0a0a23;
+  margin-bottom: 10px;
+}
+
+#depoimentos .subtitulo {
+  font-size: 18px;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 50px;
+}
+
+.grid-depoimentos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.depoimento {
+  background: #f7f9fc;
+  border-radius: 16px;
+  padding: 30px 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  text-align: left;
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.depoimento::before {
+  content: "“";
+  font-size: 80px;
+  color: #00ccaa;
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  opacity: 0.25;
+  font-family: serif;
+}
+
+.depoimento:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(0, 204, 170, 0.25);
+}
+
+.depoimento .texto {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.depoimento .autor strong {
+  display: block;
+  font-size: 16px;
+  color: #0a0a23;
+}
+
+.depoimento .autor span {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Dark mode automático */
+@media (prefers-color-scheme: dark) {
+  #depoimentos {
+    background: #0b1020;
+  }
+
+  #depoimentos h2 {
+    color: #e8ecf1;
+  }
+
+  #depoimentos .subtitulo {
+    color: #cfd6e3;
+  }
+
+  .depoimento {
+    background: #121a2e;
+  }
+
+  .depoimento .texto {
+    color: #e8ecf1;
+  }
+
+  .depoimento .autor span {
+    color: #b8c0d4;
+  }
+}
+
