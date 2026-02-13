@@ -147,19 +147,19 @@ footer {
 }
 
 /* ---------------- Serviços ---------------- */
-#servicos {
+#Portifolio {
   background-color: #f9f9f9;
   padding: 60px 20px;
   text-align: center;
 }
 
-#servicos h2 {
+#Portifolio h2 {
   font-size: 32px;
   color: #0a0a23;
   margin-bottom: 40px;
 }
 
-.cards-servicos {
+.cards-Portifolio {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
