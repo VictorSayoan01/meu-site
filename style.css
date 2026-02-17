@@ -813,9 +813,7 @@ form {
 
 
 /* ----------------- Especialidades ------------------ */
-
-/* ================= HERO PROTEÇÃO PREMIUM ================= */
-
+/* ================ Seção de Estudos de Proteção =================== */
 .hero-protecao {
   position: relative;
   min-height: 80vh;
@@ -860,7 +858,6 @@ form {
   border-radius: 20px;
   animation: fadeUpHero 1s ease forwards;
 }
-
 
 .tag-servico {
   display: inline-block;
@@ -949,6 +946,7 @@ form {
   margin: 0 auto 20px;
 }
 
+/* Como Funciona */
 .como-funciona {
   background: #0a0a23;
   color: #fff;
@@ -1116,31 +1114,93 @@ form {
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-.consultoria-potencia {
-  background: #0a0a23;
-  color: #ffffff;
-  padding: 120px 20px;
+/* Área de Consultoria */
+#consultoria-potencia {
+  background: linear-gradient(to bottom, #ffffff, #f4f8fc);
+  padding: 100px 20px;
+}
+
+#consultoria-potencia h2 {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 15px;
+  color: #0a0a23;
+}
+
+#consultoria-potencia .subtitulo {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+  color: #555;
+}
+
+.subsecao {
+  margin-bottom: 60px;
+}
+
+.subsecao h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #003366;
+  border-left: 4px solid #00ccaa;
+  padding-left: 12px;
+}
+
+.subsecao ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.destaque-roi {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.box-roi {
+  background: #f2f9f7;
+  padding: 20px;
+  border-left: 4px solid #00ccaa;
+  margin-top: 20px;
+}
+
+.matriz-risco table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.matriz-risco th,
+.matriz-risco td {
+  border: 1px solid #ddd;
+  padding: 12px;
   text-align: center;
 }
 
-.texto-consultoria {
-  max-width: 800px;
-  margin: 30px auto;
-  font-size: 18px;
-  line-height: 1.7;
+.matriz-risco th {
+  background-color: #003366;
+  color: #fff;
 }
 
-.lista-diferenciais {
-  list-style: none;
-  margin: 40px auto;
-  padding: 0;
-  max-width: 600px;
-  text-align: left;
+.cta-consultoria {
+  text-align: center;
+  margin-top: 80px;
 }
 
-.lista-diferenciais li {
-  margin-bottom: 15px;
-  font-size: 16px;
+.btn-cta-potencia {
+  display: inline-block;
+  padding: 14px 28px;
+  background-color: #003366;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-cta-potencia:hover {
+  background-color: #00ccaa;
 }
 
 /* CTA FIXO - SOLICITAR ESTUDO */
@@ -1286,4 +1346,192 @@ form {
     width: 100%;
   }
 
+}
+
+
+/* ================ Seção de Subestação até 69 kV =================== */
+/* HERO INDUSTRIAL */
+.hero-industrial {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 20px;
+  color: #fff;
+  overflow: hidden;
+}
+
+.hero-industrial::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../assets/img/subestacao.png") center/cover no-repeat;
+  background-attachment: fixed;
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+.hero-industrial::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,20,40,0.9), rgba(0,51,102,0.9));
+  z-index: 2;
+}
+
+.hero-content-industrial {
+  position: relative;
+  z-index: 3;
+  max-width: 900px;
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.08);
+  padding: 60px 40px;
+  border-radius: 20px;
+}
+
+.tag-industrial {
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: #00ccaa;
+  font-weight: 600;
+}
+
+.hero-industrial h1 {
+  font-size: 42px;
+  margin: 20px 0;
+}
+
+.container-divisoria {
+  display: flex;
+  justify-content: center;
+  margin: 25px 0;
+}
+
+.linha-divisoria-industrial {
+  width: 100px;
+  height: 4px;
+  background: #00ccaa;
+  border-radius: 4px;
+}
+
+/* SEÇÃO INDUSTRIAL */
+.secao-industrial {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.grid-industrial {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.industrial-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.industrial-card:hover {
+  transform: translateY(-8px);
+}
+
+/* ROI */
+.secao-roi {
+  background: #0a0a23;
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.grid-roi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.roi-card {
+  background: rgba(255,255,255,0.08);
+  padding: 40px;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+}
+
+/* TIMELINE EXECUTIVA */
+.metodologia-executiva {
+  padding: 120px 20px;
+  background: #f4f8fc;
+  text-align: center;
+}
+
+.timeline-executiva {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 80px;
+}
+
+.timeline-executiva::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 5%;
+  right: 5%;
+  height: 4px;
+  background: linear-gradient(to right,#003366,#00ccaa);
+}
+
+.etapa-executiva {
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+}
+
+.etapa-numero {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #fff;
+  border: 4px solid #00ccaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  font-weight: bold;
+  color: #003366;
+  transition: 0.3s;
+}
+
+.etapa-executiva:hover .etapa-numero {
+  background: #00ccaa;
+  color: #fff;
+}
+
+/* CTA FIXO */
+.cta-industrial {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  background: linear-gradient(135deg,#003366,#0055aa);
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  animation: pulseCTA 2s infinite;
+  z-index: 999;
+}
+
+@keyframes pulseCTA {
+  0% { box-shadow: 0 0 0 0 rgba(0,85,170,0.6); }
+  70% { box-shadow: 0 0 0 15px rgba(0,85,170,0); }
+  100% { box-shadow: 0 0 0 0 rgba(0,85,170,0); }
 }
