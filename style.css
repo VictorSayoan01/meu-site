@@ -1535,3 +1535,32 @@ form {
   70% { box-shadow: 0 0 0 15px rgba(0,85,170,0); }
   100% { box-shadow: 0 0 0 0 rgba(0,85,170,0); }
 }
+
+/* BOTÃO VOLTAR HOME */
+.btn-voltar-home {
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  background: linear-gradient(135deg, #0A1F44, #0E3A8A);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.btn-voltar-home:hover {
+  background: linear-gradient(135deg, #1D4ED8, #2563EB);
+  transform: translateY(-2px);
+}
+
+.btn-voltar-home i {
+  font-size: 0.8rem;
+}
