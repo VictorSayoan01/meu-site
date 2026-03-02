@@ -1,4 +1,12 @@
 /* Reset básico */
+:root{
+  --azul-escuro:#0A1F44;
+  --azul:#1D4ED8;
+  --azul-2:#0E3A8A;
+  --cinza:#f7f9fc;
+  --texto:#1f2937;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,8 +15,8 @@
 
 body {
   background: linear-gradient(to bottom, #f7f9fc, #eaeff5);
-  font-family: Arial, sans-serif;
-  color: #333;
+  font-family: "Inter", Arial, sans-serif;
+  color: var(--texto);
   line-height: 1.6;
 }
 /* ---------------- Cabeçalho ---------------- */
@@ -337,7 +345,7 @@ form {
 
 .grid-projetos {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 30px 10px;
@@ -1616,4 +1624,258 @@ form {
 
 .btn-voltar-home i {
   font-size: 0.8rem;
+}
+
+/* ================= ARTIGOS TÉCNICOS ================= */
+
+#artigos-tecnicos {
+  background: linear-gradient(135deg, #0A1F44, #0E3A8A);
+  padding: 100px 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+#artigos-tecnicos h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+#artigos-tecnicos .subtitulo {
+  max-width: 750px;
+  margin: 0 auto 60px;
+  color: #dbe7ff;
+  font-size: 18px;
+}
+
+/* Cards continuam brancos para contraste */
+.grid-artigos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.card-artigo {
+  position: relative;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 16px;
+  text-align: left;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Glow azul atrás */
+.card-artigo::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(29, 78, 216, 0.35), transparent 70%);
+  top: -60px;
+  right: -60px;
+  z-index: -1;
+  transition: 0.4s ease;
+  opacity: 0.6;
+}
+
+.card-artigo:hover::before {
+  transform: scale(1.3);
+  opacity: 1;
+}
+
+/* Sombra principal */
+.card-artigo {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.card-artigo:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(29, 78, 216, 0.35);
+}
+
+.artigo-categoria {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1D4ED8;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-artigo h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #0A1F44;
+}
+
+.card-artigo p {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.btn-artigo {
+  text-decoration: none;
+  font-weight: 600;
+  color: #1D4ED8;
+  transition: 0.3s;
+}
+
+.btn-artigo:hover {
+  color: #0A1F44;
+}
+
+/* ========================================== */
+/* LAYOUT IEEE REAL – DUAS COLUNAS FIXAS - ARTIGOS */
+/* ========================================== */
+
+
+/* Container principal */
+.ieee-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+/* Cabeçalho */
+.ieee-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.ieee-header h1 {
+    font-size: 18pt;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.autor {
+    font-size: 9pt;
+    line-height: 1.4;
+}
+
+/* Resumo em coluna única */
+.resumo {
+    margin-bottom: 25px;
+}
+
+.resumo h2 {
+    font-size: 11pt;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.resumo p {
+    text-align: justify;
+    text-indent: 1cm;
+}
+
+/* Corpo do artigo – duas colunas */
+.corpo-artigo {
+    column-count: 2;
+    column-gap: 30px;
+}
+
+.corpo-artigo h2 {
+    font-size: 11pt;
+    font-weight: bold;
+    margin-top: 15px;
+    break-after: avoid;
+}
+
+.corpo-artigo p {
+    text-align: justify;
+    text-indent: 1cm;
+    margin-bottom: 8px;
+    break-inside: avoid;
+}
+
+/* Equações */
+.equacao {
+    text-align: center;
+    margin: 12px 0;
+    font-size: 11pt;
+    break-inside: avoid;
+}
+
+/* Referências */
+.referencias {
+    margin-top: 30px;
+    font-size: 9pt;
+}
+
+.referencias h2 {
+    font-size: 11pt;
+    margin-bottom: 8px;
+}
+
+.referencias ol {
+    padding-left: 20px;
+}
+
+/* Rodapé */
+.ieee-footer {
+    text-align: center;
+    font-size: 8pt;
+    margin-top: 30px;
+    padding: 15px 0;
+    border-top: 1px solid #ccc;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .corpo-artigo {
+        column-count: 1;
+    }
+}
+
+/* ===== Equações (estilo LaTeX visual) ===== */
+.eqblock{
+  text-align: center;
+  margin: 14px 0 16px 0;
+  padding: 8px 10px;
+  border-left: 3px solid #000;
+  background: #fafafa;
+  break-inside: avoid;
+}
+
+/* ===== Caixa de definição matemática ===== */
+.mathbox{
+  border: 1px solid #000;
+  padding: 10px 12px;
+  margin: 10px 0 16px 0;
+  font-size: 12px;
+  background: #fff;
+  break-inside: avoid;
+}
+
+.mathbox-title{
+  font-weight: 700;
+  margin-bottom: 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.tabela-ieee {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9pt;
+    margin: 15px 0;
+}
+
+.tabela-ieee th,
+.tabela-ieee td {
+    border: 1px solid #000;
+    padding: 6px;
+    text-align: center;
+}
+
+.tabela-ieee th {
+    font-weight: bold;
+    background-color: #f5f5f5;
 }
