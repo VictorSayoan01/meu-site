@@ -7,91 +7,169 @@
 </head>
 <body>
 
-    <header class="cabecalho">
-        <div class="cabecalho-conteudo">
-            <img src="../assets/img/logo.png" alt="Logo" class="logo-header">
-            <h1 class="titulo-header">Projetos de Subestação</h1>
-        </div>
-    </header>
+<header class="cabecalho">
+  <div class="cabecalho-conteudo">
+    <img src="../assets/img/logo.png" alt="Logo" class="logo-header">
+    <h1 class="titulo-header">Projetos de Subestação</h1>
+  </div>
+</header>
 
-  <!-- Botão do WhatsApp -->
-  <a href="https://wa.me/5583986422752" class="whatsapp-float" target="_blank" aria-label="Whatsapp">
-    <img src="../assets/img/whatsapp-icon.png" alt="WhatsApp" />
-  </a>
+<!-- Botão WhatsApp -->
+<a href="https://wa.me/5583986422752" class="whatsapp-float" target="_blank">
+  <img src="../assets/img/whatsapp-icon.png" alt="WhatsApp">
+</a>
 
-  <div class="container">
-    
-    <!-- Wrapper estilo Netflix -->
-    <div class="carousel-wrapper">
-      <!-- Botão Esquerda -->
-      <button class="scroll-btn left" onclick="scrollCarousel('carousel-sub', -1)">&#10094;</button>
 
-      <!-- Carrossel de Projetos -->
-      <div class="grid-projetos" id="carousel-sub">
-        <!-- CARD 1 -->
-        <div class="card-projeto">
-          <img src="../assets/img/subestacao_300kVA/3D.png" alt="Subestação 300 kVA" loading="lazy"
-     decoding="async">
-          <h3>Subestação de 300 kVA</h3>
-        </div>
+<!-- ========================= -->
+<!-- CARROSSEL 1 -->
+<!-- ========================= -->
 
-        <!-- CARD 2  -->
-        <div class="card-projeto">
-          <img src="../assets/img/subestação_225KVA/3d.png" alt="Subestação 225 kVA">
-          <h3>Subestação de 225 kVA</h3>
-        </div>
+<div class="container">
 
-        <!-- CARD 3 -->
-        <div class="card-projeto">
-          <img src="../assets/img/subetacao_45kVA/3D.png" alt="Subestação 45 kVA">
-          <h3>Subestação de 45 kVA</h3>
-        </div>
+  <div class="carousel-wrapper">
 
-        <!-- Adicione mais cards aqui se quiser -->
+    <button class="scroll-btn left" onclick="scrollCarousel('carousel-sub1', -1)">❮</button>
+
+    <div class="grid-projetos" id="carousel-sub1">
+
+      <!-- CARD -->
+      <div class="card-projeto">
+        <div class="galeria-projeto">
+          <img id="img-principal-300"
+                class="img-principal-300"
+                src="../assets/img/subestacao_300kVA/RENDER_SUBESTACAO_300_KVA_REDEPHARMA.jpg"
+                loading="lazy">
+
+                <div class="miniaturas">
+                  <img src="../assets/img/subestacao_300kVA/RENDER_SUBESTACAO_300_KVA_REDEPHARMA.jpg"
+                      onclick="trocarImagem(this,'img-principal-300')">
+
+                  <img src="../assets/img/subestacao_300kVA/RENDER_SUBESTACAO_300_KVA_REDEPHARMA01.jpg"
+                      onclick="trocarImagem(this,'img-principal-300')">
+                </div>
+          </div>
       </div>
 
-      <!-- Botão Direita -->
-      <button class="scroll-btn right" onclick="scrollCarousel('carousel-sub', 1)">&#10095;</button>
-    </div>
-  </div>
+      <!-- CARD -->
+      <div class="card-projeto">
+        <div class="galeria-projeto">
+          <img id="img-principal-225"
+               class="imagem-principal"
+               src="../assets/img/subestação_225KVA/RENDER_SUBESTACAO_225_KVA_NAVEGANTES.jpg"
+               loading="lazy">
+          <div class="miniaturas">
+            <img src="../assets/img/subestação_225KVA/RENDER_SUBESTACAO_225_KVA_NAVEGANTES.jpg"
+                 onclick="trocarImagem(this,'img-principal-225')">
 
-  <div class="container">
-    
-    <!-- Wrapper estilo Netflix -->
-    <div class="carousel-wrapper">
-      <!-- Botão Esquerda -->
-      <button class="scroll-btn left" onclick="scrollCarousel('carousel-sub', -1)">&#10094;</button>
+            <img src="../assets/img/subestação_225KVA/RENDER_SUBESTACAO_225_KVA_NAVEGANTES02.jpg"
+                 onclick="trocarImagem(this,'img-principal-225')">
 
-      <!-- Carrossel de Projetos -->
-      <div class="grid-projetos" id="carousel-sub">
-        
-        <!-- CARD 1 -->
-        <div class="card-projeto">
-          <img src="../assets/img/subestacao_2,5MVA/render1.png" alt="Subestação 2,5 MVA">
-          <h3>Subestação de 2,5 MVA</h3>
+            <img src="../assets/img/subestação_225KVA/RENDER_SUBESTACAO_225_KVA_NAVEGANTES03.jpg"
+                 onclick="trocarImagem(this,'img-principal-225')">
+          </div>
         </div>
-
-        <!-- Adicione mais cards aqui se quiser -->
+        <h3>Subestação de 225 kVA</h3>
       </div>
 
-      <!-- Botão Direita -->
-      <button class="scroll-btn right" onclick="scrollCarousel('carousel-sub', 1)">&#10095;</button>
+      <!-- CARD -->
+      <div class="card-projeto">
+        <div class="galeria-projeto">
+          <img id="img-principal-45"
+               class="imagem-principal"
+               src="../assets/img/subetacao_45kVA/RENDER_SUBESTAÇÃO_45_KVA_SERIDÓ.jpg"
+               loading="lazy">
+          <div class="miniaturas">
+            <img src="../assets/img/subetacao_45kVA/RENDER_SUBESTAÇÃO_45_KVA_SERIDÓ.jpg"
+                 onclick="trocarImagem(this,'img-principal-45')">
+            <img src="../assets/img/subetacao_45kVA/RENDER_SUBESTAÇÃO_45_KVA_SERIDÓ02.jpg"
+                 onclick="trocarImagem(this,'img-principal-45')">
+          </div>
+        </div>
+        <h3>Subestação de 45 kVA</h3>
+      </div>
+
     </div>
 
-    <a href="../index.html" class="btn-card">← Voltar à Home</a>
+    <button class="scroll-btn right" onclick="scrollCarousel('carousel-sub1', 1)">❯</button>
+
   </div>
 
-  <!-- Script de rolagem -->
-  <script>
-    function scrollCarousel(containerId, direction) {
-      const container = document.getElementById(containerId);
-      const card = container.querySelector('.card-projeto');
-      const cardWidth = card.offsetWidth + 30; // largura + gap
-      container.scrollBy({
-        left: direction * cardWidth,
-        behavior: 'smooth'
-      });
-    }
-  </script>
+</div>
+
+<!-- ========================= -->
+<!-- CARROSSEL 2 -->
+<!-- ========================= -->
+
+<div class="container">
+
+  <div class="carousel-wrapper">
+
+    <button class="scroll-btn left" onclick="scrollCarousel('carousel-sub2', -1)">❮</button>
+
+    <div class="grid-projetos" id="carousel-sub2">
+
+      <!-- CARD COM GALERIA -->
+      <div class="card-projeto">
+        <div class="galeria-projeto">
+          <img id="img-principal-2500"
+               class="imagem-principal"
+               src="../assets/img/subestacao_2,5MVA/RENDER_SUBESTACAO_2,5_MVA_01.jpg"
+               loading="lazy">
+          <div class="miniaturas">
+            <img src="../assets/img/subestacao_2,5MVA/RENDER_SUBESTACAO_2,5_MVA_01.jpg"
+                 onclick="trocarImagem(this,'img-principal-2500')">
+            <img src="../assets/img/subestacao_2,5MVA/RENDER_SUBESTACAO_2,5_MVA_02.jpg"
+                 onclick="trocarImagem(this,'img-principal-2500')">
+            <img src="../assets/img/subestacao_2,5MVA/RENDER_SUBESTACAO_2,5_MVA_03.jpg"
+                 onclick="trocarImagem(this,'img-principal-2500')">
+          </div>
+        </div>
+        <h3>Subestação de 2,5 MVA</h3>
+      </div>
+    </div>
+
+    <button class="scroll-btn right" onclick="scrollCarousel('carousel-sub2', 1)">❯</button>
+
+  </div>
+
+  <a href="../index.html" class="btn-card">← Voltar à Home</a>
+
+</div>
+
+
+
+<!-- ========================= -->
+<!-- SCRIPT -->
+<!-- ========================= -->
+
+<script>
+
+function scrollCarousel(containerId, direction) {
+
+  const container = document.getElementById(containerId);
+
+  if(!container) return;
+
+  const card = container.querySelector('.card-projeto');
+
+  const cardWidth = card.offsetWidth + 10;
+
+  container.scrollBy({
+    left: direction * cardWidth,
+    behavior: 'smooth'
+  });
+
+}
+
+function trocarImagem(elemento,idImagem){
+
+  const imagemPrincipal = document.getElementById(idImagem);
+
+  imagemPrincipal.src = elemento.src;
+
+}
+
+</script>
+
 </body>
 </html>

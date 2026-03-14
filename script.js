@@ -1,4 +1,7 @@
-// Função para envio de formulário via WhatsApp
+// ============================
+// ENVIO DE FORMULÁRIO WHATSAPP
+// ============================
+
 document.getElementById('form-contato')?.addEventListener('submit', function(e) {
   e.preventDefault();
 
@@ -8,50 +11,98 @@ document.getElementById('form-contato')?.addEventListener('submit', function(e) 
   const mensagem = document.getElementById('mensagem').value.trim();
 
   const texto = `Olá, Victor! 👋\n\nGostaria de solicitar um orçamento.\n\n*Nome:* ${nome}\n*E-mail:* ${email}\n*Serviço:* ${servico}\n*Mensagem:* ${mensagem}`;
+
   const url = `https://wa.me/5583986422752?text=${encodeURIComponent(texto)}`;
 
   window.open(url, '_blank');
 });
 
 
-// --- Carrossel tipo Netflix com rolagem horizontal por setas ---
+// ============================
+// CARROSSEL PORTFÓLIO (SCROLL)
+// ============================
+
 function scrollProjetos(direction) {
+
   const container = document.querySelector('.grid-projetos');
+
+  if(!container) return;
+
   const scrollAmount = container.offsetWidth / 2;
-  container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+
+  container.scrollBy({
+    left: direction * scrollAmount,
+    behavior: 'smooth'
+  });
+
 }
 
-// --------- Animação dos Indicadores (Count Up) ---------
+
+// ============================
+// ANIMAÇÃO DOS INDICADORES
+// ============================
+
 const indicadores = document.querySelectorAll('.numero');
 
-const animarIndicadores = () => {
+function animarIndicadores(){
+
   indicadores.forEach(indicador => {
+
     const alvo = +indicador.getAttribute('data-target');
+
     let valor = 0;
+
     const incremento = Math.ceil(alvo / 80);
 
     const contador = setInterval(() => {
+
       valor += incremento;
-      if (valor >= alvo) {
+
+      if(valor >= alvo){
         indicador.textContent = alvo;
         clearInterval(contador);
       } else {
         indicador.textContent = valor;
       }
-    }, 20);
-  });
-};
 
-// Ativar quando a seção aparecer na tela
+    },20);
+
+  });
+
+}
+
 const secaoIndicadores = document.getElementById('indicadores');
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animarIndicadores();
-      observer.disconnect(); // roda só uma vez
-    }
-  });
-}, { threshold: 0.4 });
+if(secaoIndicadores){
 
-observer.observe(secaoIndicadores);
+  const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+      if(entry.isIntersecting){
+
+        animarIndicadores();
+
+        observer.disconnect();
+
+      }
+
+    });
+
+  }, { threshold: 0.4 });
+
+  observer.observe(secaoIndicadores);
+
+}
+
+// ============================
+// MINIATURA
+// ============================
+
+function trocarImagem(elemento,idImagem){
+
+  const imagemPrincipal = document.getElementById(idImagem);
+
+  imagemPrincipal.src = elemento.src;
+
+}
