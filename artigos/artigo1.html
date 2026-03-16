@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estudos de Proteção Elétrica</title>
+  <title>Análise de Demanda e Tarifação de Energia</title>
 
   <!-- CSS -->
   <link rel="stylesheet" href="../style.css">
@@ -32,13 +32,13 @@
 
   <!-- Cabeçalho IEEE -->
   <header class="ieee-header">
-    <h1>Sistema de Proteção Aplicado a Usinas Fotovoltaicas Conectadas em Média Tensão</h1>
+    <h1>Análise de Demanda e Tarifação de Energia Elétrica em Unidades Consumidoras Comerciais e Industriais</h1>
 
     <p class="autor">
-      Victor Sayoan Fernandes<br>
+      Victor Sayoan Pessoa<br>
       Engenheiro Eletricista – CREA-PB 162366833-6<br>
       João Pessoa – PB, Brasil<br>
-      Email: contato@seudominio.com
+      Email: engenheirovictorsayoan@gmail.com
     </p>
   </header>
 
@@ -46,266 +46,286 @@
   <section class="resumo">
     <h2>Resumo</h2>
     <p>
-      Este trabalho analisa os impactos da conexão de usinas fotovoltaicas
-      em média tensão sobre os sistemas de proteção da rede de distribuição,
-      considerando modelagem matemática, análise de curto-circuito conforme IEC 60909,
-      fluxo de potência simplificado e critérios de estabilidade transitória.
+      A análise de demanda e tarifação de energia elétrica constitui uma ferramenta
+      estratégica para otimização de custos operacionais em instalações comerciais
+      e industriais. Este artigo apresenta os fundamentos técnicos da demanda
+      contratada, a estrutura tarifária aplicada às unidades consumidoras do
+      Grupo A e os impactos econômicos decorrentes do enquadramento inadequado
+      da modalidade tarifária. São discutidos exemplos práticos de restaurantes,
+      supermercados e pequenas indústrias, demonstrando como a revisão da demanda
+      contratada e da modalidade tarifária pode reduzir significativamente o custo
+      da energia elétrica sem necessidade de alterações físicas na instalação.
     </p>
   </section>
 
   <!-- Corpo em duas colunas -->
   <section class="corpo-artigo">
-    <h2>Introdução</h2>
-    <p>
-      A inserção de usinas fotovoltaicas conectadas em níveis de 13,8 kV ou 34,5 kV
-      provoca alterações estruturais no comportamento elétrico do sistema de
-      distribuição, exigindo reavaliação completa da filosofia de proteção no ponto
-      de conexão (PCC – Point of Common Coupling). A presença de geração distribuída
-      modifica a impedância equivalente vista pela rede, altera o perfil de tensão
-      ao longo do alimentador e impacta diretamente os níveis de curto-circuito
-      calculados originalmente para operação unidirecional.
-    </p>
 
-    <p>
-      Diferentemente de uma carga convencional, cujo fluxo de potência é
-      exclusivamente da rede para o consumidor, a geração fotovoltaica introduz
-      fluxo bidirecional de potência ativa e reativa, podendo provocar inversão
-      de corrente no alimentador em determinados regimes operativos. Essa condição
-      interfere na seletividade dos dispositivos de proteção existentes,
-      especialmente quando não há função direcional habilitada.
-    </p>
+      <h2>A importância da análise de demanda e tarifação de energia elétrica para empresas</h2>
 
-    <p>
-      Sob o ponto de vista de curto-circuito, a contribuição dos inversores —
-      embora limitada eletronicamente (tipicamente entre 1,1 a 1,3 p.u. da corrente
-      nominal por período transitório curto) — altera o nível de corrente de falta
-      no ponto de conexão. Esse acréscimo pode reduzir a margem de coordenação
-      temporal (Δt) entre dispositivos a montante e a jusante, comprometendo a
-      seletividade previamente estabelecida nas curvas tempo x corrente (TCC).
-    </p>
+      <p>
+      A energia elétrica é um dos principais custos operacionais de muitos negócios, especialmente em empresas com elevada carga instalada, funcionamento prolongado, uso intensivo de refrigeração, climatização, motores, fornos, iluminação ou processos produtivos contínuos. Mesmo assim, é muito comum que empresários paguem a conta de energia sem saber se estão contratando a demanda correta, se estão enquadrados na modalidade tarifária mais vantajosa ou se existe desperdício financeiro embutido na fatura mensal.
+      </p>
 
-    <p>
-      Adicionalmente, a elevação do nível de curto-circuito pode aproximar os
-      dispositivos de proteção de seus limites de capacidade interruptiva,
-      especialmente em sistemas com transformadores elevadores de baixa impedância
-      percentual (Z%). Em cenários de máxima geração e mínima carga, pode ocorrer
-      também elevação de tensão no ponto de conexão devido à redução da queda
-      de tensão no alimentador, exigindo análise criteriosa das funções 59
-      (sobretensão).
-    </p>
+      <p>
+      É nesse ponto que a análise de demanda e tarifação se torna uma ferramenta estratégica. Mais do que apenas conferir valores cobrados pela concessionária, esse estudo permite entender o perfil de consumo da unidade, avaliar a compatibilidade entre a operação real e a tarifa aplicada, identificar excessos de demanda, ociosidade contratada, penalidades e oportunidades de economia.
+      </p>
 
-    <p>
-      Portanto, a conexão de usinas fotovoltaicas em média tensão não deve ser
-      tratada como simples ampliação de carga instalada, mas como modificação
-      estrutural do regime elétrico do alimentador, demandando estudo completo
-      de curto-circuito, fluxo de potência, coordenação e parametrização de
-      relés digitais conforme critérios normativos e técnicos da concessionária.
-    </p>
+      <p>
+      Em muitos casos, empresas pagam mais do que deveriam simplesmente porque nunca revisaram a estrutura tarifária da unidade consumidora. E o mais importante: essa economia pode ser alcançada sem troca de equipamentos, sem grandes reformas e sem necessidade de reduzir a operação. Muitas vezes, o ganho vem apenas de um enquadramento técnico correto.
+      </p>
 
-    <h2>Curto-Circuito</h2>
+      <h2>O que é análise de demanda e tarifação</h2>
 
-    <p>
-      A determinação das correntes de curto-circuito em sistemas de média tensão
-      deve  seguir metodologia padronizada, sendo a norma IEC 60909 a principal
-      referência internacional para cálculo de correntes de falta em sistemas
-      trifásicos de corrente alternada.
-    </p>
+      <p>
+      A análise de demanda e tarifação é um estudo técnico da forma como a energia elétrica está sendo consumida e faturada em uma instalação. Seu objetivo é verificar se a empresa está contratando e pagando pela energia da maneira mais eficiente possível, considerando sua rotina de funcionamento, horários de maior utilização, potência instalada, tipo de carga e modalidade tarifária adotada.
+      </p>
 
-    <p>
-      A corrente inicial simétrica de curto-circuito trifásico no ponto de falta
-      é dada por:
-    </p>
+      <p>Esse trabalho normalmente envolve:</p>
 
-    <div class="equacao">
-      \[
-      I''_{k} = \frac{c \cdot U_n}{\sqrt{3} \cdot Z_k}
-      \]
-    </div>
+      <ul>
+      <li>avaliação das faturas de energia;</li>
+      <li>leitura dos dados de demanda medida;</li>
+      <li>comparação entre demanda contratada e demanda utilizada;</li>
+      <li>análise de consumo em ponta e fora de ponta;</li>
+      <li>estudo da modalidade tarifária mais vantajosa;</li>
+      <li>identificação de multas e cobranças desnecessárias;</li>
+      <li>projeções de economia com ajustes técnicos e contratuais.</li>
+      </ul>
 
-    <p>
-      onde \(U_n\) representa a tensão nominal linha-linha do sistema,
-      \(Z_k\) é a impedância equivalente de sequência positiva vista
-      do ponto de falta, e \(c\) é o fator de tensão definido pela IEC 60909,
-      utilizado para considerar condições de operação máxima ou mínima
-      do sistema.
-    </p>
+      <p>
+      Na prática, a análise mostra se a empresa está pagando corretamente ou se existe margem para redução de custo.
+      </p>
 
-    <p>
-      Abaixo, vemos a tabela com os fatores de tensão dados pela norma IEC 60909.
-    </p>
+      <h2>O que é demanda contratada</h2>
 
-    <table class="tabela-ieee">
-      <thead>
-        <tr>
-          <th>Nível de Tensão Nominal</th>
-          <th>c<sub>max</sub></th>
-          <th>c<sub>min</sub></th>
-          <th>Observação</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Baixa Tensão (≤ 1 kV)</td>
-          <td>1,10</td>
-          <td>0,95</td>
-          <td>Considera variação típica ±10%</td>
-        </tr>
-        <tr>
-          <td>Média Tensão (1 kV &lt; Un ≤ 35 kV)</td>
-          <td>1,10</td>
-          <td>1,00</td>
-          <td>Sistemas industriais e concessionárias</td>
-        </tr>
-        <tr>
-          <td>Alta Tensão (&gt; 35 kV)</td>
-          <td>1,10</td>
-          <td>1,00</td>
-          <td>Redes de transmissão e subtransmissão</td>
-        </tr>
-      </tbody>
-    </table>
+      <p>
+      Antes de entender a importância do estudo, é necessário compreender o conceito de demanda contratada.
+      </p>
 
-    <p> 
-      A impedância equivalente \(Z_k\) é composta pelas contribuições
-      da rede da concessionária, transformadores elevadores,
-      cabos ou linhas de média tensão e, quando aplicável,
-      da geração distribuída conectada ao ponto de acoplamento comum (PCC).
-    </p>
+      <p>
+      Demanda é a potência solicitada pela instalação elétrica em determinado intervalo de tempo, normalmente expressa em kW. Em unidades atendidas em média tensão, a concessionária cobra não apenas a energia consumida em kWh, mas também a demanda de potência disponibilizada para o consumidor.
+      </p>
 
-    <h3>Componente Assimétrica e Corrente de Pico</h3>
+      <p>
+      A demanda contratada é o valor que a empresa reserva junto à concessionária para poder operar. Em termos simples, é como se o consumidor dissesse: “preciso que a distribuidora deixe disponível até determinado nível de potência para meu funcionamento”.
+      </p>
 
-    <p>
-      Além da corrente simétrica \(I''_k\), deve-se considerar
-      a componente contínua (DC offset) presente no instante inicial
-      do curto-circuito, responsável pela corrente de pico máxima
-      que solicita mecanicamente os disjuntores.
-    </p>
+      <p>O problema é que dois erros são muito comuns:</p>
 
-    <p>
-      A corrente de pico pode ser estimada por:
-    </p>
+      <p>
+      O primeiro é contratar uma demanda acima da real necessidade. Nesse caso, a empresa paga todo mês por uma capacidade que não utiliza.
+      </p>
 
-    <div class="equacao">
-      \[
-      i_{p} = \kappa \cdot \sqrt{2} \cdot I''_{k}
-      \]
-    </div>
+      <p>
+      O segundo é contratar uma demanda abaixo da necessária. Nesse cenário, quando a operação ultrapassa o limite contratado, podem surgir cobranças por ultrapassagem, aumentando significativamente a conta.
+      </p>
 
-    <p>
-      onde \(\kappa\) é o fator dependente da relação \(X/R\) do sistema,
-      conforme tabelas da IEC 60909. Sistemas com elevada relação
-      \(X/R\) apresentam maior componente DC e, consequentemente,
-      maiores esforços eletromecânicos.
-    </p>
+      <p>
+      Por isso, definir a demanda corretamente é uma decisão técnica e econômica.
+      </p>
 
-    <h3>Curto-Circuito Fase-Terra</h3>
+      <h2>O que é tarifação de energia</h2>
 
-    <p>
-      Para faltas monofásicas à terra, o cálculo deve considerar
-      as impedâncias de sequência positiva (\(Z_1\)),
-      negativa (\(Z_2\)) e zero (\(Z_0\)), sendo a corrente
-      estimada por:
-    </p>
+      <p>
+      Tarifação é a forma como a concessionária estrutura a cobrança da energia elétrica. Dependendo do tipo de unidade consumidora, do nível de tensão, da classe tarifária e do horário de uso da energia, a conta pode variar bastante.
+      </p>
 
-    <div class="equacao">
-      \[
-      I_{f} = \frac{3 \cdot U_f}{Z_1 + Z_2 + Z_0}
-      \]
-    </div>
+      <p>
+      Nas unidades do Grupo A, por exemplo, a fatura geralmente considera componentes como:
+      </p>
 
-    <p>
-      onde \(U_f\) é a tensão de fase. A magnitude da corrente fase-terra
-      depende fortemente do regime de aterramento do sistema,
-      podendo variar significativamente entre sistemas com neutro
-      solidamente aterrado, aterrado por resistência ou isolado.
-    </p>
+      <ul>
+      <li>consumo de energia elétrica;</li>
+      <li>demanda contratada;</li>
+      <li>demanda medida;</li>
+      <li>ultrapassagem de demanda;</li>
+      <li>consumo no horário de ponta;</li>
+      <li>consumo fora de ponta;</li>
+      <li>encargos e tributos.</li>
+      </ul>
 
-<h3>Influência da Geração Fotovoltaica</h3>
+      <p>
+      Além disso, existem modalidades tarifárias diferentes, como horossazonal azul e horossazonal verde, e a escolha inadequada entre essas modalidades pode gerar prejuízo mensal recorrente.
+      </p>
 
-<p>
-  Em sistemas com usinas fotovoltaicas conectadas,
-  a contribuição dos inversores deve ser incorporada ao modelo.
-  Embora limitada eletronicamente, a injeção de corrente durante
-  a falta pode elevar o nível de curto-circuito no PCC,
-  alterando a coordenação das proteções a montante.
-</p>
+      <p>
+      Uma empresa pode operar corretamente do ponto de vista elétrico, mas estar enquadrada em uma tarifa ruim para o seu perfil. Nesse caso, a instalação funciona, mas financeiramente perde competitividade.
+      </p>
 
-<p>
-  A elevação do nível de curto-circuito pode implicar:
-</p>
+      <h2>Por que a análise de demanda e tarifação é tão importante</h2>
 
-<ul>
-  <li>Redução da margem de coordenação temporal (Δt);</li>
-  <li>Aproximação dos limites de capacidade interruptiva;</li>
-  <li>Necessidade de reparametrização das funções 50/51;</li>
-  <li>Aplicação de proteção direcional (67).</li>
-</ul>
+      <p>
+      A principal importância desse estudo está no fato de que ele transforma a conta de energia em informação gerencial. Em vez de enxergar a fatura como apenas uma despesa inevitável, a empresa passa a tratá-la como um centro de otimização.
+      </p>
 
-<h3>Implicações na Capacidade Interruptiva</h3>
+      <p>
+      Quando a análise é feita de forma técnica, ela permite:
+      </p>
 
-<p>
-  Os dispositivos de proteção devem possuir capacidade
-  de interrupção superior ao valor calculado de \(I''_k\),
-  considerando margem de segurança conforme norma.
-  Em sistemas de 13,8 kV e 34,5 kV, a elevação do nível
-  de curto-circuito pode exigir substituição de disjuntores
-  ou revisão da filosofia de proteção.
-</p>
+      <ul>
+      <li>reduzir custos fixos mensais;</li>
+      <li>eliminar cobranças indevidas ou desnecessárias;</li>
+      <li>adequar a demanda contratada à realidade da operação;</li>
+      <li>escolher a modalidade tarifária mais econômica;</li>
+      <li>melhorar o planejamento financeiro;</li>
+      <li>evitar penalidades por ultrapassagem;</li>
+      <li>apoiar decisões de expansão de carga;</li>
+      <li>aumentar a competitividade do negócio.</li>
+      </ul>
 
-<p>
-  Portanto, o cálculo preciso das correntes de curto-circuito
-  constitui etapa fundamental para garantir seletividade,
-  estabilidade e conformidade regulatória na conexão
-  de usinas fotovoltaicas em média tensão.
-</p>
+      <p>
+      Em muitos empreendimentos, a energia representa uma parcela relevante do custo operacional. Restaurantes, supermercados, farmácias, panificadoras, academias, indústrias, clínicas, hotéis e centros comerciais são exemplos de negócios onde uma revisão tarifária pode gerar impactos significativos no caixa.
+      </p>
 
-    <h2>Contribuição dos Inversores</h2>
-    <p>
-      A corrente de contribuição pode ser modelada como:
-    </p>
+      <h2>Onde as empresas normalmente perdem dinheiro</h2>
 
-    <div class="equacao">
-      \[
-      I_{IBR} = k_{sc} \cdot I_n
-      \]
-    </div>
+      <h2>1. Demanda contratada acima da necessidade</h2>
 
-    <h2>Fluxo de Potência</h2>
-    <p>
-      A variação aproximada de tensão pode ser estimada por:
-    </p>
+      <p>
+      Imagine uma empresa que contratou 200 kW de demanda há alguns anos, quando operava com maior carga. Com o tempo, trocou equipamentos, reduziu o ritmo de funcionamento ou mudou o perfil de operação. Hoje, sua demanda medida raramente ultrapassa 130 kW.
+      </p>
 
-    <div class="equacao">
-      \[
-      \Delta V \approx \frac{R P + X Q}{V}
-      \]
-    </div>
+      <p>
+      Mesmo assim, ela continua pagando por 200 kW contratados.
+      </p>
 
-    <h2>Conclusão</h2>
-    <p>
-      A correta coordenação dos dispositivos de proteção é essencial
-      para garantir seletividade, estabilidade e conformidade regulatória.
-    </p>
+      <p>
+      Nesse caso, existe uma folga excessiva de 70 kW que pode estar gerando custo fixo desnecessário todos os meses.
+      </p>
 
-  </section>
+      <h2>2. Demanda contratada abaixo do necessário</h2>
+
+      <p>
+      Agora imagine o cenário oposto: uma empresa contrata 90 kW, mas em vários meses mede 110 kW, 115 kW ou 120 kW. Isso gera cobrança por ultrapassagem, e essa penalização pode tornar a conta muito mais cara do que seria se a demanda tivesse sido ajustada corretamente.
+      </p>
+
+      <h2>3. Modalidade tarifária inadequada</h2>
+
+      <p>
+      Duas empresas com consumo semelhante podem ter contas bem diferentes, apenas porque estão em modalidades tarifárias distintas.
+      </p>
+
+      <p>
+      Se a operação concentra maior uso de energia fora do horário de ponta, uma modalidade pode ser mais vantajosa. Se existe comportamento diferente entre demanda de ponta e fora de ponta, outra modalidade pode fazer mais sentido.
+      </p>
+
+      <p>
+      Sem análise, a empresa permanece em uma estrutura tarifária que nem sempre acompanha sua realidade operacional.
+      </p>
+
+      <h2>4. Crescimento da carga sem revisão contratual</h2>
+
+      <p>
+      É comum uma empresa ampliar sua operação, instalar novos equipamentos, expandir climatização, incluir câmaras frias, freezers, bombas ou motores e não revisar a demanda contratada. O resultado costuma aparecer na fatura em forma de ultrapassagens sucessivas.
+      </p>
+
+      <h2>5. Falta de acompanhamento técnico da fatura</h2>
+
+      <p>
+      Muitas vezes a conta é apenas paga, sem qualquer conferência. Com isso, oportunidades de economia passam despercebidas por meses ou até anos.
+      </p>
+
+      <h2>Conclusão</h2>
+
+      <p>
+      A análise de demanda e tarifação é uma das formas mais inteligentes de reduzir custos com energia elétrica sem comprometer a operação da empresa. Trata-se de um estudo técnico que identifica desperdícios invisíveis na fatura, ajusta a demanda contratada à realidade do negócio, avalia a melhor modalidade tarifária e ajuda o consumidor a pagar de forma mais eficiente pelo que realmente utiliza.
+      </p>
+
+      <p>
+      Em um cenário em que energia representa parcela relevante do custo operacional, deixar de revisar a estrutura tarifária é abrir espaço para perdas financeiras contínuas. Muitas vezes, a empresa não precisa consumir menos para economizar; precisa apenas estar tecnicamente melhor enquadrada.
+      </p>
+
+      <p>
+      Por isso, investir em uma análise de demanda e tarifação não deve ser visto como despesa, mas como decisão estratégica. Quando bem executado, esse estudo transforma a conta de energia em oportunidade de economia, previsibilidade e competitividade.
+      </p>
+
+      <div class="box-economia">
+        <h3> Economia potencial com análise de demanda</h3>
+
+        <p>
+          Empresas que realizam uma análise técnica da demanda contratada e da
+          modalidade tarifária podem reduzir o custo da energia elétrica
+          entre <strong>10% e 30%</strong>, dependendo do perfil de consumo.
+        </p>
+
+        <ul>
+          <li> Ajuste da demanda contratada</li>
+          <li> Correção da modalidade tarifária</li>
+          <li> Eliminação de multas por ultrapassagem</li>
+          <li> Otimização do consumo em ponta e fora de ponta</li>
+        </ul>
+
+        <p>
+          Em muitos casos, a economia ocorre <strong>sem necessidade de troca de equipamentos</strong>,
+          apenas com análise técnica da fatura de energia.
+        </p>
+      </div>
+
+</section>
 
   <!-- Referências -->
   <section class="referencias">
     <h2>Referências</h2>
     <ol>
-      <li>IEC 60909 – Short-circuit currents in three-phase AC systems.</li>
+      <li>ANEEL – Procedimentos de Distribuição de Energia Elétrica no Sistema Elétrico Nacional (PRODIST).</li>
+      <li>ANEEL – Estrutura Tarifária do Setor Elétrico Brasileiro.</li>
       <li>ABNT NBR 14039 – Instalações elétricas de média tensão.</li>
-      <li>IEEE Std C37 – Protective Relaying.</li>
+      <li>ONS – Planejamento e operação de sistemas elétricos de potência.</li>
     </ol>
   </section>
 
 </div>
 
-<a href="https://wa.me/5583986422752?text=Olá%20Victor,%20gostaria%20de%20solicitar%20um%20Estudo%20de%20Proteção%20Elétrica."
-   class="cta-estudo"
-   target="_blank">
-   ⚡ Falar com o engenheiro
+<div class="cta-energia">
+
+<div class="cta-icon">
+⚡
+</div>
+
+<h2>Reduza sua conta de energia em até <span>10–30%</span></h2>
+
+<p>
+Empresas comerciais e industriais frequentemente pagam mais energia
+do que deveriam por conta da demanda contratada incorreta ou da
+modalidade tarifária inadequada.
+</p>
+
+<p>
+Envie sua última fatura de energia e receba uma análise técnica
+gratuita para identificar oportunidades de economia.
+</p>
+
+<div class="cta-botoes">
+
+<a href="https://wa.me/5583986422752?text=Olá%20Victor,%20gostaria%20de%20analisar%20minha%20conta%20de%20energia."
+class="btn-whatsapp">
+<i class="fab fa-whatsapp"></i> Enviar fatura pelo WhatsApp
 </a>
+
+</div>
+
+<div class="form-fatura">
+
+<h3>Ou envie sua fatura pelo formulário</h3>
+
+<form>
+
+<input type="text" placeholder="Nome da empresa" required>
+
+<input type="email" placeholder="Seu email" required>
+
+<input type="tel" placeholder="Telefone / WhatsApp">
+
+<input type="file" accept=".pdf,.jpg,.png">
+
+<button type="submit">Enviar fatura para análise</button>
+
+</form>
+
+</div>
+
+</div>
 
 </body>
 </html>
