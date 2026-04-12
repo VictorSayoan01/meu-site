@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proteção de Sistemas Elétricos em Usinas Solares de Grande Porte</title>
+
+  <!-- CSS do site -->
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="ieee.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+
+<body>
+
+<a href="../index.html" class="btn-voltar-home">
+  <i class="fas fa-arrow-left"></i>
+  Voltar ao Início
+</a>
+
+<div class="ieee-container">
+
+  <!-- Cabeçalho IEEE -->
+  <header class="ieee-header">
+    <h1>Proteção de Sistemas Elétricos em Usinas Solares Fotovoltaicas de Grande Geração: Fundamentos, Filosofia e Critérios Técnicos</h1>
+
+    <p class="autor">
+      Victor Sayoan Pessoa<br>
+      Engenheiro Eletricista – CREA-PB 162366833-6<br>
+      João Pessoa – PB, Brasil<br>
+      Email: engenheirovictorsayoan@gmail.com
+    </p>
+  </header>
+
+  <!-- Resumo -->
+  <section class="resumo">
+    <h2>Resumo</h2>
+    <p>
+      A proteção de sistemas elétricos em usinas solares fotovoltaicas (UFV) de grande porte
+      é uma disciplina de alta complexidade técnica, que envolve a coordenação entre inversores,
+      transformadores, barramentos coletores, cabos de corrente contínua (CC) e a subestação
+      elevadora de conexão com a rede de transmissão ou distribuição. Este artigo apresenta,
+      de forma detalhada, os fundamentos da filosofia de proteção aplicada a grandes usinas solares,
+      abordando os principais relés de proteção, as funções ANSI utilizadas, os critérios de
+      seletividade e coordenação, as particularidades do comportamento elétrico de fontes
+      fotovoltaicas frente a curtos-circuitos, e os requisitos normativos impostos pelos
+      procedimentos de rede do Operador Nacional do Sistema Elétrico (ONS) e pela ANEEL.
+      São discutidos ainda os esquemas de proteção diferencial, de sobrecorrente, de distância,
+      de falta à terra e de ilhamento, com ênfase nas diferenças fundamentais em relação à
+      proteção de usinas convencionais.
+    </p>
+  </section>
+
+  <!-- Corpo -->
+  <section class="corpo-artigo">
+
+    <!-- ===== 1. INTRODUÇÃO ===== -->
+    <h2>1. Introdução</h2>
+
+    <p>
+      O crescimento acelerado da geração solar fotovoltaica no Brasil e no mundo transformou
+      as usinas de grande porte em elementos estruturantes do sistema elétrico de potência.
+      Projetos com capacidade instalada superior a 30 MW, conectados em tensões de 69 kV,
+      138 kV ou 230 kV, demandam um sistema de proteção elétrica comparável em sofisticação
+      ao de qualquer usina termelétrica ou hidrelétrica convencional.
+    </p>
+
+    <p>
+      No entanto, as fontes fotovoltaicas apresentam comportamento elétrico fundamentalmente
+      diferente das máquinas síncronas tradicionais. Enquanto geradores convencionais contribuem
+      com correntes de curto-circuito elevadas — frequentemente de 5 a 10 vezes a corrente
+      nominal — os inversores de usinas fotovoltaicas são dispositivos baseados em eletrônica
+      de potência que limitam ativamente a corrente de saída, geralmente a valores entre 1,0 e
+      1,5 vezes a corrente nominal. Essa característica impõe desafios significativos para o
+      dimensionamento e ajuste dos relés de proteção convencionais, que foram historicamente
+      concebidos para operar em sistemas com fontes de alta impedância de curto-circuito.
+    </p>
+
+    <p>
+      A compreensão adequada dessas particularidades é indispensável para que o engenheiro
+      responsável pelo projeto de proteção possa definir corretamente a filosofia de proteção,
+      escolher as funções de relé apropriadas, ajustar os parâmetros de temporização e corrente
+      com precisão, e garantir que o sistema opere com segurança, seletividade e rapidez diante
+      de qualquer condição anormal.
+    </p>
+
+    <!-- ===== 2. ARQUITETURA ELÉTRICA ===== -->
+    <h2>2. Arquitetura Elétrica de uma Usina Solar de Grande Porte</h2>
+
+    <p>
+      Antes de abordar a proteção propriamente dita, é fundamental compreender a arquitetura
+      elétrica típica de uma usina fotovoltaica de grande porte, pois é ela que determina os
+      pontos de instalação dos relés, transformadores de corrente (TC) e transformadores de
+      potencial (TP), bem como as zonas de proteção a serem definidas.
+    </p>
+
+    <h3>2.1 Arranjo CC — Strings, Caixas Combinadoras e Quadros Coletores</h3>
+
+    <p>
+      No lado de corrente contínua, os módulos fotovoltaicos são agrupados em <em>strings</em>
+      — séries de painéis conectados em série para elevar a tensão até o nível de entrada do
+      inversor (tipicamente entre 900 V e 1500 V CC). Múltiplas strings são reunidas em
+      <em>caixas combinadoras</em> (string boxes ou combiner boxes), onde a corrente de cada
+      string é somada ao barramento CC principal.
+    </p>
+
+    <p>
+      As string boxes concentram os primeiros dispositivos de proteção CC: fusíveis de string
+      (de 10 A a 20 A, dependendo da corrente de curto-circuito do módulo), diodos de bloqueio
+      em projetos mais antigos, e, em projetos modernos, disjuntores CC de baixa tensão com
+      capacidade de interrupção mínima de 1,2 × \(I_{sc}\) do arranjo.
+    </p>
+
+    <p>
+      As caixas combinadoras alimentam os quadros coletores CC (DC collection boxes), que por
+      sua vez alimentam os inversores. Em usinas com inversores centrais de grande porte
+      (1 MW a 6,25 MW), esse caminho é direto. Em usinas com inversores string (tipicamente
+      de 30 kW a 110 kW), existe uma camada adicional de agrupamento antes do ponto de
+      conexão com os inversores.
+    </p>
+
+    <h3>2.2 Inversores e Transformadores de Elevação Dedicados</h3>
+
+    <p>
+      Os inversores convertem a corrente contínua variável dos painéis em corrente alternada
+      com tensão e frequência controladas, sincronizadas com a rede. Em grandes usinas, cada
+      inversor central é associado a um <em>transformador de elevação dedicado</em> (também
+      chamado de transformador de inversor), que eleva a tensão de saída do inversor
+      (normalmente 600 V CA, 800 V CA ou 1000 V CA) para a tensão do barramento coletor CA
+      da usina (tipicamente 13,8 kV ou 34,5 kV).
+    </p>
+
+    <p>
+      Esse par inversor-transformador forma a unidade geradora básica da usina fotovoltaica.
+      A proteção desse conjunto é a primeira e mais granular camada do sistema de proteção.
+    </p>
+
+    <h3>2.3 Barramento Coletor CA e Subestação Elevadora</h3>
+
+    <p>
+      Os transformadores de inversor alimentam o <em>barramento coletor CA</em> (collector
+      bus), que agrega a geração de múltiplos inversores. O barramento coletor é então
+      conectado ao enrolamento de baixa tensão do <em>transformador elevador principal</em>
+      da subestação da usina, que eleva a tensão para o nível de transmissão (69 kV, 138 kV
+      ou 230 kV) para conexão ao sistema elétrico de potência.
+    </p>
+
+    <p>
+      A subestação elevadora comporta os principais equipamentos de proteção de alta tensão:
+      disjuntores, seccionadoras, para-raios, transformadores de corrente e de potencial,
+      e o painel de relés de proteção principal da usina.
+    </p>
+
+    <!-- ===== 3. ZONAS DE PROTEÇÃO ===== -->
+    <h2>3. Filosofia de Proteção e Definição das Zonas</h2>
+
+    <p>
+      A filosofia de proteção de uma usina fotovoltaica é baseada no conceito de
+      <em>zonas de proteção sobrepostas</em>, onde cada zona é monitorada por um conjunto
+      de relés que atuam de forma seletiva para isolar apenas o elemento em falta, sem
+      interromper desnecessariamente a geração dos demais blocos.
+    </p>
+
+    <p>
+      As zonas de proteção típicas de uma grande usina solar são:
+    </p>
+
+    <ul>
+      <li><strong>Zona 1 – CC (Arranjo Fotovoltaico):</strong> Proteção dos cabos CC, strings e caixas combinadoras contra falta à terra CC e sobrecorrente CC.</li>
+      <li><strong>Zona 2 – Inversor:</strong> Proteção interna do inversor (sobretensão, sobrecorrente, sobrecarga, sobretemperatura), realizada pelo próprio sistema de controle embarcado no inversor.</li>
+      <li><strong>Zona 3 – Transformador de Inversor:</strong> Proteção do transformador de elevação dedicado, incluindo proteção diferencial (87T), sobrecorrente de fase e terra (51/51N), proteção de Buchholz e temperatura de óleo para unidades a óleo.</li>
+      <li><strong>Zona 4 – Barramento Coletor CA:</strong> Proteção contra faltas no barramento coletor de média tensão, incluindo proteção diferencial de barramento (87B) em usinas de maior porte.</li>
+      <li><strong>Zona 5 – Transformador Elevador Principal:</strong> Proteção diferencial (87T), sobrecorrente de fase (51) e terra (51N/64), proteção de neutro restrito (87N), Buchholz, temperatura e demais proteções físicas e elétricas do transformador principal.</li>
+      <li><strong>Zona 6 – Ramal de Conexão à Rede (Linha de Interligação):</strong> Proteção de distância (21), sobrecorrente direcional (67/67N), proteção diferencial de linha (87L) quando aplicável, e funções de ilhamento.</li>
+    </ul>
+
+    <p>
+      O dimensionamento correto das zonas e a sobreposição entre elas — garantindo que
+      nenhum equipamento fique sem proteção — é a primeira etapa do projeto de proteção.
+    </p>
+
+    <!-- ===== 4. INVERSORES E CURTO-CIRCUITO ===== -->
+    <h2>4. Comportamento do Inversor Frente a Curtos-Circuitos</h2>
+
+    <p>
+      A característica mais crítica e diferenciadora das usinas fotovoltaicas em relação
+      às fontes convencionais é o comportamento dos inversores durante faltas elétricas.
+      Esse comportamento determina diretamente os valores de corrente de curto-circuito
+      disponíveis para operação dos relés de proteção.
+    </p>
+
+    <h3>4.1 Limitação de Corrente por Eletrônica de Potência</h3>
+
+    <p>
+      Os inversores modernos são equipados com malhas de controle de corrente em anel
+      fechado. Quando ocorre uma falta no sistema CA, a tensão no ponto de conexão do
+      inversor cai abruptamente. O controlador do inversor responde tentando injetar
+      corrente na rede para suportar a tensão, mas a corrente máxima é limitada
+      internamente ao valor de projeto dos IGBTs (transistores bipolares de porta isolada)
+      do conversor, tipicamente entre \(1,0 \times I_n\) e \(1,5 \times I_n\).
+    </p>
+
+    <p>
+      Em contraste, um gerador síncrono convencional pode fornecer correntes de curto-circuito
+      subtransitórias de 5 a 10 vezes a corrente nominal nos primeiros ciclos após a falta,
+      o que é fundamental para a detecção rápida por relés de sobrecorrente.
+    </p>
+
+    <p>
+      Essa limitação intrínseca dos inversores significa que relés de sobrecorrente (51)
+      ajustados para detectar valores elevados de corrente de falta podem simplesmente
+      <strong>não enxergar a falta</strong> se forem aplicados sem adaptação à realidade
+      fotovoltaica. Um ajuste de pickup de 3 × In em um relé que monitora a saída de um
+      inversor jamais será ativado, pois a corrente de falta nunca ultrapassará 1,5 × In.
+    </p>
+
+    <h3>4.2 Injeção de Corrente Reativa Durante Faltas (FRT — Fault Ride-Through)</h3>
+
+    <p>
+      Os requisitos de rede modernos — especialmente os definidos pelo ONS nos Procedimentos
+      de Rede (Módulo 3) e pelas normas europeias VDE-AR-N 4120 — exigem que as usinas
+      fotovoltaicas de grande porte permaneçam conectadas à rede durante afundamentos de
+      tensão (<em>fault ride-through</em>, FRT), injetando corrente reativa para suporte
+      de tensão em vez de desconectar imediatamente.
+    </p>
+
+    <p>
+      Durante a operação em FRT, o inversor pode injetar corrente predominantemente reativa,
+      com o ângulo de fase da corrente deslocado em até 90° em relação à tensão. Esse
+      comportamento deve ser considerado nos ajustes dos relés direcionais e de impedância,
+      pois a direção aparente da potência pode ser diferente da esperada.
+    </p>
+
+    <h3>4.3 Corrente de Curto-Circuito CC</h3>
+
+    <p>
+      No lado CC, a corrente de curto-circuito disponível pelos módulos fotovoltaicos
+      é limitada pela corrente de curto-circuito dos painéis (\(I_{sc}\)), que tipicamente
+      é apenas 5% a 10% superior à corrente de máxima potência (\(I_{mp}\)). Isso significa
+      que faltas CC produzem correntes muito baixas em comparação com sistemas convencionais,
+      tornando a proteção de strings por fusíveis um desafio técnico, pois os fusíveis podem
+      não fundir em caso de falta em ponto intermediário da string.
+    </p>
+
+    <!-- ===== 5. FUNÇÕES ANSI ===== -->
+    <h2>5. Funções de Proteção ANSI Aplicadas em Usinas Fotovoltaicas</h2>
+
+    <p>
+      A seguir são descritas as principais funções de proteção segundo a designação
+      ANSI/IEEE C37.2, suas aplicações específicas e os critérios de ajuste em usinas
+      fotovoltaicas de grande porte.
+    </p>
+
+    <h3>5.1 Função 21 — Proteção de Distância</h3>
+
+    <p>
+      A proteção de distância é aplicada no ramal de conexão da usina com o sistema de
+      transmissão, monitorando a impedância vista pelo relé no ponto de conexão. Quando a
+      impedância medida cai abaixo do valor ajustado (indicando uma falta próxima), o relé
+      atua para abrir o disjuntor de conexão.
+    </p>
+
+    <p>
+      Em usinas fotovoltaicas, a função 21 deve ser ajustada com atenção especial ao fato
+      de que a impedância de fonte no lado da usina é elevada (devido à limitação de corrente
+      dos inversores), o que pode afetar a medição de impedância pelo relé durante faltas
+      externas. Algoritmos modernos de relés adaptativos são frequentemente necessários para
+      garantir operação seletiva.
+    </p>
+
+    <h3>5.2 Função 27 — Proteção de Subtensão</h3>
+
+    <p>
+      A subtensão no ponto de conexão pode indicar falta na rede, carregamento excessivo
+      ou problema no transformador elevador. Os ajustes devem ser coordenados com os
+      requisitos de FRT: o relé 27 não deve atuar durante afundamentos de tensão dentro
+      do envelope de FRT definido pelo ONS (por exemplo, tensão acima de 0,85 pu por até
+      500 ms), mas deve atuar para tensões mais severas ou mais prolongadas.
+    </p>
+
+    <p>
+      São normalmente implementados dois estágios:
+    </p>
+    <ul>
+      <li><strong>27-1:</strong> Subtensão severa — tensão inferior a 0,50 pu — atuação rápida (100 ms a 200 ms).</li>
+      <li><strong>27-2:</strong> Subtensão moderada — tensão entre 0,50 pu e 0,85 pu — atuação temporizada (800 ms a 2000 ms), coordenada com o perfil FRT exigido.</li>
+    </ul>
+
+    <h3>5.3 Função 47 — Proteção de Sequência Negativa de Tensão</h3>
+
+    <p>
+      O desequilíbrio de tensão no ponto de conexão, caracterizado pela presença de
+      componente de sequência negativa, pode indicar falta monofásica ou bifásica na rede,
+      abertura de fase ou problemas em transformadores. Em usinas fotovoltaicas trifásicas,
+      a função 47 é essencial para detectar condições assimétricas que podem comprometer
+      o desempenho dos inversores e causar torques reversos em cargas motoras conectadas
+      ao mesmo barramento.
+    </p>
+
+    <h3>5.4 Função 51/51N — Sobrecorrente Temporizado de Fase e Terra</h3>
+
+    <p>
+      A proteção de sobrecorrente temporizada (51) é a função mais comum em sistemas
+      de proteção elétrica. No entanto, em usinas fotovoltaicas, seu ajuste exige cuidado
+      redobrado devido à limitação de corrente dos inversores.
+    </p>
+
+    <p>
+      Para a proteção do transformador de inversor e do barramento coletor, os ajustes
+      de pickup devem ser suficientemente baixos para detectar as correntes de falta
+      limitadas pelos inversores, mas acima da corrente de carga máxima, incluindo
+      eventuais sobrecargas transientes durante picos de geração.
+    </p>
+
+    <p>
+      A proteção de sobrecorrente de terra (51N) é fundamental para detectar faltas
+      monofásicas à terra, especialmente em sistemas com neutro aterrado por resistência
+      ou por reator de Petersen, onde as correntes de falta à terra são naturalmente baixas.
+    </p>
+
+    <h3>5.5 Função 59 — Proteção de Sobretensão</h3>
+
+    <p>
+      A sobretensão no ponto de conexão pode ocorrer durante rejeição de carga, defeito
+      no regulador do transformador com tap variável (OLTC) ou desconexão de grande carga
+      com a usina ainda em operação. Os estágios típicos são:
+    </p>
+    <ul>
+      <li><strong>59-1:</strong> Sobretensão moderada — acima de 1,10 pu — temporização de 1 s a 3 s.</li>
+      <li><strong>59-2:</strong> Sobretensão severa — acima de 1,20 pu — atuação instantânea ou em 100 ms.</li>
+    </ul>
+
+    <h3>5.6 Função 64 — Proteção de Falta à Terra (Neutro Isolado ou Alta Impedância)</h3>
+
+    <p>
+      Em sistemas de média tensão com neutro isolado ou aterrado por alta impedância,
+      a função 64 detecta correntes capacitivas de falta à terra de baixo valor. Em usinas
+      fotovoltaicas, o barramento coletor de 13,8 kV ou 34,5 kV frequentemente opera em
+      neutro isolado ou com aterramento por resistência, exigindo relés sensíveis capazes
+      de detectar correntes de falta à terra da ordem de poucos ampères.
+    </p>
+
+    <h3>5.7 Função 67/67N — Sobrecorrente Direcional de Fase e Terra</h3>
+
+    <p>
+      A direcionalidade é necessária em pontos da rede onde a corrente de falta pode
+      fluir em ambos os sentidos, dependendo da topologia e do número de fontes conectadas.
+      Em usinas fotovoltaicas conectadas em paralelo com a rede de transmissão, a função 67
+      garante que o relé atue apenas quando a falta está no sentido correto (para dentro
+      da usina ou para a rede, dependendo da lógica de proteção).
+    </p>
+
+    <p>
+      A função 67N (sobrecorrente direcional de terra) é especialmente importante para
+      discriminar entre correntes capacitivas normais e correntes de falta à terra,
+      utilizando a componente de sequência zero como referência direcional.
+    </p>
+
+    <h3>5.8 Função 81O/81U — Proteção de Sobrefrequência e Subfrequência</h3>
+
+    <p>
+      Desvios de frequência indicam desequilíbrio entre geração e carga no sistema elétrico.
+      Em usinas fotovoltaicas, a proteção de frequência é especialmente relevante no contexto
+      de detecção de ilhamento: quando a usina fica operando isolada de uma porção da rede
+      sem conexão com o sistema principal, a frequência tende a derivar rapidamente, permitindo
+      a detecção do ilhamento antes que o inversor tente sincronizar-se novamente.
+    </p>
+
+    <p>Os ajustes típicos para conexão na rede brasileira (60 Hz nominal) são:</p>
+    <ul>
+      <li><strong>81U-1:</strong> Subfrequência moderada — abaixo de 59,5 Hz — temporização de 0,5 s a 1 s.</li>
+      <li><strong>81U-2:</strong> Subfrequência severa — abaixo de 58,5 Hz — atuação rápida em 100 ms a 300 ms.</li>
+      <li><strong>81O-1:</strong> Sobrefrequência moderada — acima de 60,5 Hz — temporização de 0,5 s a 1 s.</li>
+      <li><strong>81O-2:</strong> Sobrefrequência severa — acima de 61,5 Hz — atuação rápida em 100 ms a 300 ms.</li>
+    </ul>
+
+    <h3>5.9 Função 81R — Proteção por Variação de Frequência (df/dt — ROCOF)</h3>
+
+    <p>
+      A taxa de variação de frequência (<em>Rate of Change of Frequency</em> — ROCOF) é
+      um dos indicadores mais sensíveis de ilhamento em sistemas com geração distribuída e
+      centralizada. Em condições normais de operação interligada, a inércia do sistema elétrico
+      limita a taxa de variação de frequência a valores muito baixos. Em caso de ilhamento,
+      a ausência de suporte inercial da rede faz com que a frequência varie rapidamente
+      (valores de df/dt superiores a 0,5 Hz/s a 2 Hz/s indicam potencial ilhamento).
+    </p>
+
+    <h3>5.10 Função 87T — Proteção Diferencial de Transformador</h3>
+
+    <p>
+      A proteção diferencial de transformador é a proteção de maior sensibilidade e
+      seletividade para faltas internas no transformador. Ela compara as correntes
+      nos enrolamentos primário e secundário do transformador (corrigidas pela relação
+      de transformação e pela defasagem angular do grupo de ligação) e atua quando
+      a diferença (corrente diferencial) excede o valor de pickup ajustado.
+    </p>
+
+    <p>
+      Em usinas fotovoltaicas, a função 87T é aplicada em dois pontos principais:
+    </p>
+    <ul>
+      <li>No <strong>transformador de inversor</strong> (par inversor-trafo), protegendo contra curtos-circuitos internos no transformador de baixa tensão.</li>
+      <li>No <strong>transformador elevador principal</strong> da subestação, protegendo contra faltas internas no equipamento de maior valor e criticidade da usina.</li>
+    </ul>
+
+    <p>
+      Os ajustes da função 87T devem incluir:
+    </p>
+    <ul>
+      <li>Compensação do grupo vetorial do transformador (por exemplo, Yd11 ou Dy1).</li>
+      <li>Bloqueio por segunda harmônica para evitar atuação indevida durante a energização do transformador (corrente de inrush).</li>
+      <li>Bloqueio por quinta harmônica para evitar atuação durante saturação do núcleo sob sobretensão.</li>
+      <li>Zona restrita de alta impedância (HAZ) ou proteção de neutro restrito (87N) complementar para faltas próximas ao neutro.</li>
+    </ul>
+
+    <h3>5.11 Função 87L — Proteção Diferencial de Linha</h3>
+
+    <p>
+      Quando o ramal de conexão da usina com a subestação da concessionária possui extensão
+      significativa (superior a 2 km a 5 km em média tensão, ou qualquer extensão em alta
+      tensão), a proteção diferencial de linha (87L) é a solução mais eficaz para proteção
+      rápida e seletiva do trecho. Ela requer comunicação de alta velocidade entre os relés
+      de cada extremidade da linha (tipicamente via fibra óptica com protocolo IEC 61850 GOOSE
+      ou protocolo proprietário IEEE C37.94).
+    </p>
+
+    <h3>5.12 Função 87B — Proteção Diferencial de Barramento</h3>
+
+    <p>
+      Em subestações com múltiplos alimentadores conectados ao barramento coletor,
+      a proteção diferencial de barramento (87B) oferece proteção de alta velocidade
+      (menos de 1 ciclo — 16,7 ms) para faltas no barramento, sem necessidade de
+      temporização. Isso é particularmente valioso em usinas de grande porte onde
+      uma falta no barramento coletor poderia desconectar centenas de megawatts de geração
+      se a proteção de backup fosse utilizada como proteção principal.
+    </p>
+
+    <!-- ===== 6. PROTEÇÃO CONTRA ILHAMENTO ===== -->
+    <h2>6. Proteção Contra Ilhamento</h2>
+
+    <p>
+      O ilhamento (<em>islanding</em>) ocorre quando uma usina fotovoltaica continua
+      a operar e fornecer energia a uma porção da rede elétrica após a abertura dos
+      disjuntores que a conectam ao sistema principal. Essa condição é extremamente
+      perigosa por múltiplas razões:
+    </p>
+
+    <ul>
+      <li>A tensão e a frequência na ilha podem estar fora dos limites normais, colocando em risco os equipamentos dos consumidores alimentados.</li>
+      <li>A presença de tensão em um trecho de rede que deveria estar desenergizado representa risco de morte para trabalhadores que realizam manutenção ou reparos acreditando que o circuito está seguro.</li>
+      <li>Quando a rede principal é religada, pode ocorrer fechamento fora de sincronismo entre a ilha e o sistema principal, gerando transitórios eletromecânicos severos que danificam equipamentos.</li>
+    </ul>
+
+    <p>
+      A detecção de ilhamento em usinas de grande porte é realizada por um conjunto
+      complementar de métodos:
+    </p>
+
+    <h3>6.1 Métodos Passivos de Detecção</h3>
+
+    <p>
+      Os métodos passivos monitoram perturbações nas grandezas elétricas locais
+      (tensão, frequência, fase) que ocorrem naturalmente no momento do ilhamento:
+    </p>
+    <ul>
+      <li><strong>Monitoramento de frequência (81O/81U):</strong> Detecção de desvios de frequência além dos limites normais.</li>
+      <li><strong>Taxa de variação de frequência (81R — ROCOF):</strong> Detecção de variação rápida de frequência típica do ilhamento.</li>
+      <li><strong>Monitoramento de tensão (27/59):</strong> Subtensão ou sobretensão no ponto de acoplamento.</li>
+      <li><strong>Salto de fase (Phase Jump Detection):</strong> Detecta variação abrupta do ângulo de fase da tensão, característica do momento de abertura do disjuntor de conexão à rede.</li>
+    </ul>
+
+    <p>
+      Os métodos passivos têm como limitação a existência de uma <em>zona de não-detecção</em>
+      (NDZ — Non-Detection Zone): condições em que a carga local na ilha está balanceada com
+      a geração fotovoltaica, de forma que tensão, frequência e fase praticamente não se
+      alteram após o ilhamento.
+    </p>
+
+    <h3>6.2 Métodos Ativos de Detecção</h3>
+
+    <p>
+      Os métodos ativos introduzem pequenas perturbações controladas na geração do inversor
+      e observam a resposta do sistema para detectar ilhamento:
+    </p>
+    <ul>
+      <li><strong>Deslocamento de frequência ativo (Active Frequency Drift — AFD):</strong> O inversor introduz uma pequena distorção no formato de onda de corrente, deslocando gradualmente a frequência. Em rede conectada, a frequência é mantida pela rede; em ilha, a frequência deriva detectavelmente.</li>
+      <li><strong>Perturbação de potência reativa:</strong> O inversor injeta pequenas variações de potência reativa e monitora a resposta de tensão. Em ilha, a ausência da rede faz a tensão reagir mais intensamente.</li>
+      <li><strong>Sandia Frequency Shift (SFS) e Sandia Voltage Shift (SVS):</strong> Variantes mais sofisticadas dos métodos de perturbação, com realimentação positiva para ampliar a resposta do sistema em caso de ilhamento.</li>
+    </ul>
+
+    <h3>6.3 Método de Comunicação — Transfer Trip</h3>
+
+    <p>
+      O método mais confiável de detecção de ilhamento em usinas de grande porte é
+      o esquema de <em>transfer trip</em> (disparo por telecomando): quando o disjuntor
+      de conexão no lado da concessionária abre, um sinal de disparo é enviado imediatamente
+      (via fibra óptica, PLC — Power Line Carrier, ou radiofrequência) para o disjuntor
+      da usina, que abre em menos de 100 ms, eliminando o ilhamento antes que ele se
+      estabeleça.
+    </p>
+
+    <p>
+      O transfer trip é exigido pela maioria dos operadores de rede para conexão de usinas
+      acima de determinadas potências e é considerado a solução definitiva para o problema
+      do ilhamento, pois elimina a dependência de medições locais e não possui zona de não-detecção.
+    </p>
+
+    <!-- ===== 7. PROTEÇÃO CC ===== -->
+    <h2>7. Proteção do Sistema de Corrente Contínua</h2>
+
+    <p>
+      A proteção do lado CC de uma usina fotovoltaica é uma das mais desafiadoras da
+      especialidade, pois os fenômenos elétricos envolvidos são fundamentalmente diferentes
+      dos sistemas de corrente alternada.
+    </p>
+
+    <h3>7.1 Arco Elétrico CC</h3>
+
+    <p>
+      O arco elétrico em sistemas CC é substancialmente mais perigoso e difícil de
+      extinguir do que em sistemas CA. Enquanto em CA o arco se extingue naturalmente
+      nas passagens pelo zero da corrente (120 vezes por segundo em 60 Hz), em CC
+      não existe passagem pelo zero: o arco, uma vez estabelecido, se mantém sustentado
+      pela tensão da fonte, podendo persistir por longos períodos.
+    </p>
+
+    <p>
+      O arco CC em sistemas fotovoltaicos de 1000 V ou 1500 V pode atingir temperaturas
+      superiores a 5000 °C, causar incêndio nos módulos e cabos, e destruir equipamentos
+      em segundos. A temperatura de operação e a exposição ao sol da instalação agravam
+      o envelhecimento dos cabos e conectores, aumentando o risco de arco.
+    </p>
+
+    <p>
+      Dispositivos AFCI (<em>Arc Fault Circuit Interrupter</em>) para aplicações CC
+      fotovoltaicas monitoram a forma de onda da corrente em busca de padrões espectrais
+      característicos do arco elétrico (componentes de alta frequência superimpostas à
+      corrente fundamental) e interrompem o circuito em dezenas de milissegundos.
+      O uso de AFCI é recomendado pela NEC (NFPA 70) e está sendo progressivamente
+      adotado nas normas brasileiras.
+    </p>
+
+    <h3>7.2 Falta à Terra no Sistema CC</h3>
+
+    <p>
+      Faltas à terra no sistema CC fotovoltaico (contato de cabo positivo ou negativo
+      com a estrutura metálica aterrada) são um risco significativo, pois podem não
+      produzir corrente de falta detectável pelos fusíveis convencionais, especialmente
+      em sistemas flutuantes (sem aterramento CC explícito do polo positivo ou negativo).
+    </p>
+
+    <p>
+      Os inversores modernos são equipados com monitoramento de isolamento CC
+      (função de monitoramento de resistência de isolamento — IMD, Insulation Monitoring
+      Device), que detecta redução da resistência de isolamento do arranjo CC em relação
+      à terra. Valores mínimos de resistência de isolamento aceitáveis são especificados
+      pelos fabricantes e pelas normas IEC 62446 e NBR 16690, tipicamente acima de
+      \(1 \, \text{MΩ} \cdot \text{kW}\) para o sistema completo.
+    </p>
+
+    <h3>7.3 Fusíveis e Disjuntores CC de Strings</h3>
+
+    <p>
+      Os fusíveis de string devem ser dimensionados para suportar a corrente de curto-circuito
+      máxima do arranjo (soma das \(I_{sc}\) de todas as strings em paralelo menos uma)
+      sem fundir em condições normais, mas fundindo em caso de corrente reversa de falta.
+      A condição de corrente reversa ocorre quando uma string com módulos sombreados ou
+      com falha apresenta tensão inferior às demais, tornando-se receptora de corrente.
+    </p>
+
+    <p>
+      A norma IEC 60269-6 especifica fusíveis gPV dedicados para aplicações fotovoltaicas,
+      com capacidade de interrupção em corrente contínua e tensão adequada à aplicação.
+      O uso de fusíveis CA em circuitos CC é uma prática incorreta e perigosa, que pode
+      resultar em falha de extinção do arco e explosão do porta-fusível.
+    </p>
+
+    <!-- ===== 8. COORDENAÇÃO E SELETIVIDADE ===== -->
+    <h2>8. Coordenação e Seletividade do Sistema de Proteção</h2>
+
+    <p>
+      A coordenação do sistema de proteção é o processo de ajuste dos parâmetros de
+      todos os relés e dispositivos de proteção da usina de forma que, diante de qualquer
+      falta, apenas o elemento mais próximo da falta atue, preservando a continuidade
+      operacional dos demais blocos geradores.
+    </p>
+
+    <h3>8.1 Critérios Gerais de Coordenação</h3>
+
+    <p>
+      Os critérios gerais de coordenação entre relés de sobrecorrente temporizados são
+      estabelecidos com base no intervalo de coordenação (CTI — Coordination Time Interval),
+      que é o tempo mínimo entre a atuação do relé de backup e a atuação do relé principal.
+      O CTI típico para relés estáticos e numéricos é de 200 ms a 300 ms, considerando:
+    </p>
+
+    <ul>
+      <li>tempo de operação do disjuntor principal (40 ms a 80 ms para disjuntores de média tensão);</li>
+      <li>sobrecurso (overshoot) do relé de backup (10 ms a 30 ms);</li>
+      <li>margem de segurança (100 ms a 150 ms).</li>
+    </ul>
+
+    <h3>8.2 Coordenação na Presença de Fontes Limitadas</h3>
+
+    <p>
+      Em usinas fotovoltaicas, a coordenação de sobrecorrente é complicada pelo fato de
+      que a corrente de curto-circuito disponível é baixa e praticamente constante
+      (limitada pelos inversores). Isso significa que as curvas de tempo-corrente dos
+      relés de sobrecorrente têm pouca margem de separação, pois todos os relés "veem"
+      correntes de falta semelhantes, independentemente da distância da falta.
+    </p>
+
+    <p>
+      Uma solução é adotar proteções de alta velocidade (diferencial ou de distância)
+      como proteção principal, reservando o sobrecorrente temporizado apenas como
+      proteção de backup. Essa abordagem elimina a dependência de coordenação por tempo
+      na proteção principal, garantindo atuação seletiva e rápida.
+    </p>
+
+    <h3>8.3 Estudo de Curto-Circuito em Usinas Fotovoltaicas</h3>
+
+    <p>
+      O estudo de curto-circuito em usinas fotovoltaicas deve modelar corretamente os
+      inversores como fontes de corrente controladas, e não como fontes de tensão com
+      impedância interna fixa (como são modelados os geradores síncronos). As normas
+      IEC 60909 (edição 2016) introduzem um modelo simplificado para inversores em
+      cálculos de curto-circuito, mas estudos mais precisos requerem simulação eletromagnética
+      transitória em ferramentas como PSCAD, EMTP-RV ou DIgSILENT PowerFactory.
+    </p>
+
+    <p>
+      Os valores de corrente de curto-circuito calculados são usados para:
+    </p>
+    <ul>
+      <li>dimensionamento da capacidade de interrupção dos disjuntores;</li>
+      <li>verificação da capacidade de suportabilidade dos transformadores de corrente (TC);</li>
+      <li>ajuste dos pickups dos relés de sobrecorrente;</li>
+      <li>verificação do aquecimento dos cabos durante a falta;</li>
+      <li>dimensionamento do sistema de aterramento e malha de terra.</li>
+    </ul>
+
+    <!-- ===== 9. REQUISITOS NORMATIVOS ===== -->
+    <h2>9. Requisitos Normativos e de Conexão à Rede</h2>
+
+    <p>
+      A conexão de usinas fotovoltaicas de grande porte à rede elétrica brasileira
+      está sujeita a um conjunto de requisitos normativos que definem as obrigações
+      do agente gerador em relação à proteção elétrica da usina.
+    </p>
+
+    <h3>9.1 Procedimentos de Rede do ONS (Módulo 3)</h3>
+
+    <p>
+      O Módulo 3 dos Procedimentos de Rede do ONS define os Requisitos Técnicos Mínimos
+      para a Conexão às Instalações de Transmissão (RITs). Para usinas fotovoltaicas
+      conectadas à Rede de Operação do SIN, os principais requisitos de proteção incluem:
+    </p>
+    <ul>
+      <li>instalação de relés de proteção com funcionalidades equivalentes às funções ANSI definidas pelo ONS para cada elemento da usina;</li>
+      <li>sistema de proteção com redundância (proteção principal e backup independentes);</li>
+      <li>capacidade de FRT conforme o perfil de afundamento de tensão definido;</li>
+      <li>esquema de transfer trip para desconexão em caso de ilhamento;</li>
+      <li>sistema de supervisão e aquisição de dados (SCADA) integrado ao Centro de Operação do ONS;</li>
+      <li>registro de perturbação (<em>fault recorder</em>) com amostragem mínima de 64 amostras por ciclo.</li>
+    </ul>
+
+    <h3>9.2 Resolução Normativa ANEEL nº 1.000/2021</h3>
+
+    <p>
+      Para usinas conectadas no nível de distribuição (PRODIST), as condições de conexão
+      são reguladas pela REN ANEEL 1.000/2021 e pelo PRODIST — Módulo 3 (Acesso ao Sistema
+      de Distribuição). Os requisitos incluem proteção contra ilhamento, compatibilidade
+      eletromagnética e qualidade de energia fornecida.
+    </p>
+
+    <h3>9.3 Normas Técnicas Aplicáveis</h3>
+
+    <ul>
+      <li><strong>IEC 61727:</strong> Características da interface entre sistemas fotovoltaicos e a rede elétrica de distribuição.</li>
+      <li><strong>IEC 62116:</strong> Procedimentos de teste para verificação de proteção contra ilhamento em inversores fotovoltaicos.</li>
+      <li><strong>IEC 62548:</strong> Projeto de arranjos fotovoltaicos (CC).</li>
+      <li><strong>NBR 16690:</strong> Instalações elétricas de sistemas fotovoltaicos — Requisitos de projeto.</li>
+      <li><strong>NBR 16274:</strong> Sistemas fotovoltaicos — Verificação e inspeção de sistemas fotovoltaicos conectados à rede de distribuição.</li>
+      <li><strong>ABNT NBR 14039:</strong> Instalações elétricas de média tensão.</li>
+      <li><strong>IEC 61850:</strong> Comunicação entre equipamentos em subestações de energia — protocolo para integração de relés de proteção digitais.</li>
+      <li><strong>IEEE 1547-2018:</strong> Standard for Interconnection and Interoperability of Distributed Energy Resources with Associated Electric Power Systems Interfaces.</li>
+    </ul>
+
+    <!-- ===== 10. TRANSFORMADORES TC E TP ===== -->
+    <h2>10. Transformadores de Instrumentação: TC e TP</h2>
+
+    <p>
+      Os transformadores de corrente (TC) e de potencial (TP) são os sensores fundamentais
+      do sistema de proteção. A precisão, a saturação e a carga (burden) dos TC são fatores
+      críticos para o desempenho dos relés.
+    </p>
+
+    <h3>10.1 Transformadores de Corrente (TC)</h3>
+
+    <p>
+      Os TC devem ser dimensionados para:
+    </p>
+    <ul>
+      <li><strong>Relação de transformação:</strong> A corrente secundária nominal (tipicamente 1 A ou 5 A) deve corresponder à corrente primária máxima esperada (corrente de carga máxima mais uma margem de 20% a 30%).</li>
+      <li><strong>Classe de precisão:</strong> Para proteção diferencial (87T, 87L), é necessária classe de precisão 5P ou TPX/TPY (IEC 61869-2), garantindo erro de composição máximo de 5% até 20 vezes a corrente nominal. Para medição de faturamento, a classe 0,2S é exigida.</li>
+      <li><strong>Limite de saturação:</strong> O TC não deve saturar durante a corrente de curto-circuito máxima, garantindo que o relé receba um sinal proporcional à corrente real durante a falta. TC saturados podem produzir sinais distorcidos que dificultam ou impedem a operação dos relés.</li>
+      <li><strong>Carga (burden):</strong> A resistência total do circuito secundário (cabos + relés) deve ser inferior à carga nominal do TC para garantir a precisão especificada.</li>
+    </ul>
+
+    <h3>10.2 Transformadores de Potencial (TP)</h3>
+
+    <p>
+      Os TP fornecem aos relés uma réplica em baixa tensão (normalmente 115 V ou 115/√3 V
+      por fase) da tensão do sistema. Para relés de proteção de distância (21), de
+      sobretensão (59) e de subtensão (27), a precisão do TP é fundamental. Os TP devem:
+    </p>
+    <ul>
+      <li>ser da classe de precisão 3P ou 0,5 (IEC 61869-3) para proteção;</li>
+      <li>ter capacidade de suportar a sobretensão transitória durante a energização do transformador (tipicamente 1,2 pu por 1 s);</li>
+      <li>incluir fusíveis de proteção no secundário para isolar o TP em caso de curto-circuito no circuito secundário sem perder a proteção do sistema.</li>
+    </ul>
+
+    <!-- ===== 11. COMUNICAÇÃO E IEC 61850 ===== -->
+    <h2>11. Comunicação entre Relés e Protocolo IEC 61850</h2>
+
+    <p>
+      Usinas fotovoltaicas modernas de grande porte utilizam o protocolo IEC 61850
+      para comunicação entre os relés de proteção, IEDs (Intelligent Electronic Devices),
+      sistema SCADA e centros de operação. O IEC 61850 define modelos de dados padronizados
+      e serviços de comunicação que permitem interoperabilidade entre equipamentos de
+      diferentes fabricantes.
+    </p>
+
+    <p>
+      As mensagens GOOSE (<em>Generic Object Oriented Substation Event</em>) são a
+      funcionalidade mais relevante para proteção: elas permitem o envio de sinais de
+      disparo entre relés com latência inferior a 4 ms, possibilitando esquemas de
+      proteção distribuída de alta velocidade, como o transfer trip e o bloqueio de
+      sobrecorrente direcional, sem necessidade de fiação de cobre dedicada entre os relés.
+    </p>
+
+    <p>
+      A adoção do IEC 61850 em usinas fotovoltaicas simplifica significativamente o
+      projeto de cabeamento do sistema de proteção, reduz erros de fiação e facilita
+      o diagnóstico de falhas através da monitoração contínua do estado dos IEDs.
+    </p>
+
+    <!-- ===== 12. REGISTRO DE PERTURBAÇÕES ===== -->
+    <h2>12. Registro de Perturbações e Pós-Análise de Faltas</h2>
+
+    <p>
+      O registro de perturbações é uma função essencial do sistema de proteção de uma
+      usina fotovoltaica de grande porte. Os registros de perturbação (<em>fault records</em>
+      ou oscilografias) capturam as formas de onda de tensão e corrente durante eventos
+      de falta, fornecendo os dados necessários para:
+    </p>
+
+    <ul>
+      <li>verificar se os relés atuaram corretamente;</li>
+      <li>identificar a causa e a localização da falta;</li>
+      <li>calcular os valores das grandezas durante a falta;</li>
+      <li>detectar mal-funcionamento de disjuntores ou TC;</li>
+      <li>fornecer evidências para processos de responsabilização perante a concessionária ou o ONS;</li>
+      <li>alimentar o processo de melhoria contínua do sistema de proteção.</li>
+    </ul>
+
+    <p>
+      Os relés de proteção digitais modernos possuem função de registro de perturbação
+      embarcada (Disturbance Recorder, função ANSI 83). Os registros são gravados em
+      formato COMTRADE (IEEE C37.111), que é o padrão universal para oscilografias de
+      sistemas de potência, permitindo análise em qualquer software compatível.
+    </p>
+
+    <p>
+      Os requisitos do ONS estabelecem resolução mínima de 64 amostras por ciclo
+      (3840 amostras por segundo em 60 Hz), com pré-falta de pelo menos 100 ms e
+      pós-falta de pelo menos 500 ms.
+    </p>
+
+    <!-- ===== 13. ATERRAMENTO ===== -->
+    <h2>13. Sistema de Aterramento da Usina Solar</h2>
+
+    <p>
+      O sistema de aterramento de uma usina fotovoltaica de grande porte é um elemento
+      fundamental tanto para a segurança das pessoas quanto para o correto funcionamento
+      do sistema de proteção elétrica. A malha de terra da subestação deve ser projetada
+      para limitar a tensão de toque e passo a valores seguros durante faltas à terra,
+      conforme os critérios da IEEE 80 (<em>Guide for Safety in AC Substation Grounding</em>)
+      ou da NBR 15751.
+    </p>
+
+    <h3>13.1 Malha de Terra da Subestação</h3>
+
+    <p>
+      A malha de terra é formada por condutores de cobre nu enterrados a uma profundidade
+      mínima de 0,5 m a 0,8 m, interconectados em malha retangular ou irregular, cobrindo
+      toda a área da subestação. Hastes de aterramento são instaladas nos vértices e em
+      pontos intermediários para melhorar a distribuição de corrente.
+    </p>
+
+    <p>
+      A resistência de aterramento da malha deve atender ao valor máximo especificado
+      pelo projeto (tipicamente inferior a 1 Ω em subestações de alta tensão), verificada
+      por medição com método da queda de potencial ou método Wenner após a instalação.
+    </p>
+
+    <h3>13.2 Aterramento das Estruturas dos Módulos</h3>
+
+    <p>
+      As estruturas metálicas de suporte dos módulos fotovoltaicos devem ser aterradas
+      individualmente e interligadas entre si, formando uma malha equipotencial que
+      se conecta ao sistema de terra geral da usina. O aterramento adequado das estruturas
+      é fundamental para a segurança dos trabalhadores e para o funcionamento do monitoramento
+      de isolamento CC dos inversores.
+    </p>
+
+    <h3>13.3 Para-Raios e Proteção Contra Descargas Atmosféricas</h3>
+
+    <p>
+      Usinas fotovoltaicas em campo aberto são estruturas de baixa altura distribuídas
+      em grande área, tornando-as alvos frequentes de descargas atmosféricas. O sistema
+      de proteção contra descargas atmosféricas (SPDA) deve ser projetado conforme a
+      NBR 5419 (equivalente à IEC 62305), incluindo:
+    </p>
+    <ul>
+      <li>para-raios de captação (sistema Franklin, de gaiola de Faraday ou de ponta ativa, dependendo do estudo de risco);</li>
+      <li>cabos descidas conectando os captores à malha de terra;</li>
+      <li>dispositivos de proteção contra surtos (DPS) de Classe I e Classe II nas caixas combinadoras e nos quadros de inversores;</li>
+      <li>para-raios de óxido de zinco (ZnO) no barramento de alta tensão da subestação para proteção contra sobretensões de manobra e de origem atmosférica.</li>
+    </ul>
+
+    <!-- ===== 14. TESTES E COMISSIONAMENTO ===== -->
+    <h2>14. Testes e Comissionamento do Sistema de Proteção</h2>
+
+    <p>
+      O comissionamento do sistema de proteção é a etapa de verificação em campo de que
+      todos os ajustes, a fiação e o funcionamento dos relés e disjuntores estão conforme
+      o projeto. É uma etapa não negociável antes da energização da usina.
+    </p>
+
+    <h3>14.1 Testes de Aceitação em Fábrica (FAT)</h3>
+
+    <p>
+      Os relés de proteção numéricos devem passar por testes de aceitação em fábrica
+      (Factory Acceptance Tests — FAT) realizados na presença do comprador, verificando:
+      precisão das medições, funcionamento de cada função ANSI parametrizada, tempo de
+      atuação e comunicação SCADA/IEC 61850.
+    </p>
+
+    <h3>14.2 Testes de Aceitação em Campo (SAT)</h3>
+
+    <p>
+      Os testes de campo (Site Acceptance Tests — SAT) verificam:
+    </p>
+    <ul>
+      <li>relação de transformação e polaridade dos TC e TP;</li>
+      <li>integridade da fiação entre TC/TP e relés (teste de circulação de corrente e tensão);</li>
+      <li>atuação de cada função de proteção com injeção de corrente e tensão por equipamento de teste de relés (ex.: OMICRON CMC, Megger MPRT);</li>
+      <li>tempo de atuação dos disjuntores e religadores;</li>
+      <li>funcionamento completo dos esquemas de proteção end-to-end (proteção diferencial, transfer trip);</li>
+      <li>integração SCADA e alarmes.</li>
+    </ul>
+
+    <h3>14.3 Testes de Comissionamento dos Inversores</h3>
+
+    <p>
+      Os inversores devem ser testados individualmente para verificação das proteções
+      embarcadas: sobretensão, subtensão, sobrefrequência, subfrequência, monitoramento
+      de isolamento CC, proteção de anti-ilhamento ativa e passiva, e resposta ao FRT.
+      Os parâmetros das funções de proteção embarcadas devem ser configurados conforme
+      os requisitos do ONS/ANEEL aplicáveis ao ponto de conexão da usina.
+    </p>
+
+    <!-- ===== 15. MANUTENÇÃO ===== -->
+    <h2>15. Manutenção e Testes Periódicos do Sistema de Proteção</h2>
+
+    <p>
+      O sistema de proteção de uma usina fotovoltaica deve ser submetido a manutenção
+      preventiva periódica para garantir que os relés, disjuntores, TC, TP e toda a
+      fiação de proteção permaneçam em perfeitas condições de operação ao longo de toda
+      a vida útil da usina (tipicamente 25 a 30 anos).
+    </p>
+
+    <p>
+      As principais atividades de manutenção incluem:
+    </p>
+    <ul>
+      <li>testes funcionais de relés com injeção secundária (anualmente ou conforme recomendação do fabricante);</li>
+      <li>verificação de temporização dos disjuntores;</li>
+      <li>medição da resistência de aterramento da malha de terra (a cada 2 anos);</li>
+      <li>inspeção termográfica dos quadros de média tensão e baixa tensão (semestralmente);</li>
+      <li>verificação do estado dos fusíveis CC de strings e das caixas combinadoras;</li>
+      <li>teste dos DPS e verificação de necessidade de substituição;</li>
+      <li>revisão e atualização dos ajustes dos relés quando houver modificações na capacidade instalada ou no ponto de conexão.</li>
+    </ul>
+
+    <!-- ===== 16. CONCLUSÃO ===== -->
+    <h2>16. Conclusão</h2>
+
+    <p>
+      A proteção de sistemas elétricos em usinas fotovoltaicas de grande porte é uma
+      disciplina técnica de alta complexidade, que exige do engenheiro responsável o
+      domínio simultâneo de múltiplos conhecimentos: sistemas de potência, eletrônica
+      de potência, relés digitais de proteção, comunicação industrial e requisitos
+      normativos específicos.
+    </p>
+
+    <p>
+      As características fundamentalmente diferentes das fontes fotovoltaicas em relação
+      às fontes convencionais — especialmente a limitação de corrente de curto-circuito
+      pelos inversores — impõem uma revisão crítica dos métodos tradicionais de projeto
+      de proteção. As funções diferenciais (87T, 87L, 87B) assumem papel central como
+      proteção principal, enquanto as funções de sobrecorrente (51, 67) são relegadas
+      ao papel de backup, exigindo ajustes cuidadosos para garantir sensibilidade e
+      seletividade adequadas.
+    </p>
+
+    <p>
+      A proteção contra ilhamento, a coordenação com os requisitos de FRT e a proteção
+      do sistema CC são desafios específicos das usinas fotovoltaicas que demandam soluções
+      técnicas próprias, que foram abordadas ao longo deste artigo.
+    </p>
+
+    <p>
+      O correto projeto, ajuste, comissionamento e manutenção do sistema de proteção
+      são condições indispensáveis para que uma usina solar opere com segurança, alta
+      disponibilidade e conformidade com os requisitos do ONS e da ANEEL, maximizando
+      a geração de energia ao longo de sua vida útil e protegendo os ativos de alto
+      valor da usina contra danos provocados por faltas elétricas.
+    </p>
+
+    <!-- Destaque técnico -->
+    <div class="box-economia">
+      <h3>⚡ Funções ANSI Essenciais para Usinas Fotovoltaicas de Grande Porte</h3>
+
+      <p>
+        O sistema de proteção de uma UFV de grande porte deve implementar, no mínimo,
+        as seguintes funções ANSI nos pontos críticos da instalação:
+      </p>
+
+      <ul>
+        <li><strong>21</strong> — Proteção de distância (ramal de conexão AT)</li>
+        <li><strong>27 / 59</strong> — Subtensão e sobretensão (ponto de conexão)</li>
+        <li><strong>47</strong> — Sequência negativa de tensão</li>
+        <li><strong>51 / 51N</strong> — Sobrecorrente temporizado de fase e terra</li>
+        <li><strong>67 / 67N</strong> — Sobrecorrente direcional de fase e terra</li>
+        <li><strong>64</strong> — Falta à terra de alta impedância (MT)</li>
+        <li><strong>81O / 81U / 81R</strong> — Frequência e ROCOF (anti-ilhamento)</li>
+        <li><strong>87T</strong> — Diferencial de transformador (trafo inversor e principal)</li>
+        <li><strong>87L</strong> — Diferencial de linha (ramal de conexão)</li>
+        <li><strong>87B</strong> — Diferencial de barramento (em usinas de grande porte)</li>
+      </ul>
+
+      <p>
+        Complementarmente: <strong>Transfer Trip</strong> via fibra óptica para proteção
+        definitiva contra ilhamento e <strong>AFCI</strong> para proteção de arco CC
+        nas string boxes.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- Referências -->
+  <section class="referencias">
+    <h2>Referências</h2>
+    <ol>
+      <li>ANEEL – Resolução Normativa nº 1.000/2021 – Condições Gerais de Fornecimento de Energia Elétrica.</li>
+      <li>ONS – Procedimentos de Rede, Módulo 3 – Requisitos Técnicos Mínimos para a Conexão às Instalações de Transmissão. Revisão vigente.</li>
+      <li>IEC 61727:2004 – Photovoltaic (PV) systems – Characteristics of the utility interface.</li>
+      <li>IEC 62116:2014 – Utility-interconnected photovoltaic inverters – Test procedure of islanding prevention measures.</li>
+      <li>IEC 60909-0:2016 – Short-circuit currents in three-phase AC systems.</li>
+      <li>IEC 61850-8-1:2011 – Communication networks and systems for power utility automation – Part 8-1: Specific communication service mapping (SCSM) – Mappings to MMS.</li>
+      <li>IEEE Std 1547-2018 – Standard for Interconnection and Interoperability of Distributed Energy Resources with Associated Electric Power Systems Interfaces.</li>
+      <li>IEEE Std 80-2013 – Guide for Safety in AC Substation Grounding.</li>
+      <li>IEEE C37.111-2013 – Standard Common Format for Transient Data Exchange (COMTRADE) for Power Systems.</li>
+      <li>ABNT NBR 16690:2019 – Instalações elétricas de sistemas fotovoltaicos – Requisitos de projeto.</li>
+      <li>ABNT NBR 16274:2014 – Sistemas fotovoltaicos conectados à rede – Verificação mínima dos requisitos de documentação, comissionamento, inspeção e avaliação de desempenho.</li>
+      <li>ABNT NBR 5419:2015 – Proteção contra descargas atmosféricas.</li>
+      <li>ABNT NBR 14039:2005 – Instalações elétricas de média tensão de 1,0 kV a 36,2 kV.</li>
+      <li>NFPA 70:2023 – National Electrical Code (NEC) – Article 690: Solar Photovoltaic (PV) Systems.</li>
+      <li>ANDERSON, P. M. – <em>Power System Protection</em>. Wiley-IEEE Press, 1999.</li>
+      <li>BLACKBURN, J. L.; DOMIN, T. J. – <em>Protective Relaying: Principles and Applications</em>. 4. ed. CRC Press, 2014.</li>
+      <li>PHOTOVOLTAICS, SMA Solar Technology – <em>Technical Information: Protection Relay Settings for Grid-Connected PV Plants</em>. 2022.</li>
+      <li>ETAP Power System Analysis Software – <em>Photovoltaic (PV) System Modeling and Protection</em>. White Paper. 2021.</li>
+    </ol>
+  </section>
+
+</div>
+
+<!-- CTA -->
+<div class="cta-energia">
+
+  <div class="cta-icon">
+    ☀️
+  </div>
+
+  <h2>Projeto de Proteção para sua <span>Usina Solar</span></h2>
+
+  <p>
+    O sistema de proteção elétrica é um dos projetos mais críticos de uma usina
+    fotovoltaica de grande porte. Um projeto inadequado pode comprometer a segurança
+    da instalação, a conformidade com os requisitos do ONS e a disponibilidade da usina.
+  </p>
+
+  <p>
+    Entre em contato para discutir o projeto de proteção da sua usina solar: filosofia
+    de proteção, seleção de relés, ajustes, coordenação, comissionamento e laudos técnicos.
+  </p>
+
+  <div class="cta-botoes">
+
+    <a href="https://wa.me/5583986422752?text=Olá%20Victor,%20gostaria%20de%20conversar%20sobre%20proteção%20elétrica%20para%20usina%20solar."
+    class="btn-whatsapp">
+      <i class="fab fa-whatsapp"></i> Falar sobre proteção de usina solar
+    </a>
+
+  </div>
+
+  <div class="form-fatura">
+
+    <h3>Ou envie os dados do seu projeto</h3>
+
+    <form>
+
+      <input type="text" placeholder="Nome da empresa ou projeto" required>
+
+      <input type="email" placeholder="Seu email" required>
+
+      <input type="tel" placeholder="Telefone / WhatsApp">
+
+      <input type="text" placeholder="Potência instalada da usina (MW)">
+
+      <input type="text" placeholder="Tensão de conexão (kV)">
+
+      <input type="file" accept=".pdf,.dwg,.jpg,.png" title="Diagrama unifilar ou memorial descritivo (opcional)">
+
+      <button type="submit">Enviar dados do projeto</button>
+
+    </form>
+
+  </div>
+
+</div>
+
+</body>
+</html>
