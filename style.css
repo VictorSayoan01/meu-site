@@ -20,63 +20,186 @@ body {
   line-height: 1.6;
 }
 /* ---------------- Cabeçalho ---------------- */
-.hero {
-  background-image: url('assets/img/servicos2.png');
-  background-size: cover;
-  background-position: center;
-  height: 50vh;
+/* =========================
+   HEADER TOPO ESTILO REFERÊNCIA
+========================= */
+
+.topo-site {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  min-height: 92px;
+  display: grid;
+  grid-template-columns: 240px 1fr 240px;
+  align-items: center;
+  background: #000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+}
+
+.header-esquerda {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 32px;
+  height: 100%;
+}
+
+.logo-topo {
+  max-height: 42px;
+  width: auto;
+  display: block;
+}
+
+.menu-centro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.menu-centro ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 42px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-centro a {
   position: relative;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 32px 0;
+  transition: 0.3s ease;
+}
+
+.menu-centro a:hover {
+  opacity: 0.9;
+}
+
+.menu-centro a.ativo::after,
+.menu-centro a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 18px;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+}
+
+.header-direita {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f2f2f2;
+  padding: 0 20px;
+}
+
+.btn-header-contato {
+  text-decoration: none;
+  color: #111;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.btn-header-contato:hover {
+  opacity: 0.8;
+}
+
+/* =========================
+   HERO ABAIXO DO HEADER
+========================= */
+
+.hero-home {
+  position: relative;
+  min-height: 82vh;
+  background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)),
+              url('assets/img/servicos2.png') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: #fff;
-  opacity: 0.8;
 }
 
-.hero h1 {
-  font-size: 40px;
-  margin-bottom: 10px;
+.overlay-hero {
+  max-width: 1000px;
+  padding: 40px 24px;
 }
 
-.hero p {
-  font-size: 20px;
-  margin-bottom: 20px;
+.overlay-hero h1 {
+  font-size: 52px;
+  line-height: 1.1;
+  margin-bottom: 18px;
 }
 
-.menu-centralizado ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 0;
-  margin: 0;
+.overlay-hero p {
+  font-size: 22px;
+  max-width: 850px;
+  margin: 0 auto;
 }
 
-.menu-centralizado a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 10px 20px;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-  white-space: nowrap;
-}
+/* =========================
+   RESPONSIVO
+========================= */
 
-.menu-centralizado a:hover {
-  background-color: #00ccaa;
-}
+@media (max-width: 980px) {
+  .topo-site {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 18px 20px;
+  }
 
-.logo-servico {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  display: block;
-  margin: 0 auto 20px auto;
-}
+  .header-esquerda,
+  .menu-centro,
+  .header-direita {
+    justify-content: center;
+    padding: 0;
+    height: auto;
+    background: transparent;
+  }
 
+  .menu-centro ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 22px;
+  }
+
+  .menu-centro a {
+    padding: 8px 0;
+    font-size: 15px;
+  }
+
+  .menu-centro a.ativo::after,
+  .menu-centro a:hover::after {
+    bottom: -4px;
+  }
+
+  .btn-header-contato {
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 10px 16px;
+    border-radius: 8px;
+  }
+
+  .hero-home {
+    min-height: 65vh;
+  }
+
+  .overlay-hero h1 {
+    font-size: 34px;
+  }
+
+  .overlay-hero p {
+    font-size: 18px;
+  }
+}
 /* ---------------- Rodapé ---------------- */
 footer {
   background-color: #0a0a23;
