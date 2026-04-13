@@ -331,48 +331,135 @@ footer {
 }
 
 /* ---------------- Portfólio ---------------- */
-#Portifolio {
-  background-color: #f9f9f9;
-  padding: 60px 20px;
-  text-align: center;
+.portfolio-vitrine {
+  background: #f3f3f3;
+  padding: 70px 20px 90px;
 }
 
-#Portifolio h2 {
-  font-size: 32px;
+.portfolio-vitrine h2 {
+  text-align: center;
+  font-size: 34px;
   color: #0a0a23;
   margin-bottom: 40px;
 }
 
-.cards-Portifolio {
+.grid-vitrine {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
 }
 
-.card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 30px 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  transition: all 0.6s ease;
+.projeto-vitrine {
+  display: block;
+  text-decoration: none;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 8px 16px rgba(0, 255, 204, 0.2);
-  border-color: #00ccaa;
+.projeto-vitrine:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.18);
 }
 
-.card h3 {
-  font-size: 20px;
-  color: #0a0a23;
+.imagem-projeto {
+  position: relative;
+  width: 100%;
+  height: 390px;
+  overflow: hidden;
+}
+
+.imagem-projeto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.projeto-vitrine:hover .imagem-projeto img {
+  transform: scale(1.04);
+}
+
+.status-projeto {
+  position: absolute;
+  top: 16px;
+  right: 0;
+  background: #000;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 18px;
+  letter-spacing: 0.5px;
+}
+
+.info-projeto {
+  padding: 22px 24px 26px;
+  background: #000;
+}
+
+.info-projeto h3 {
+  font-size: 22px;
+  margin-bottom: 14px;
+  color: #fff;
+}
+
+.info-projeto p {
+  font-size: 15px;
+  color: #d9d9d9;
+  margin-bottom: 14px;
+}
+
+.info-projeto ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-projeto li {
+  font-size: 15px;
+  color: #f0f0f0;
   margin-bottom: 10px;
+  position: relative;
+  padding-left: 18px;
 }
 
-.card p {
-  font-size: 16px;
-  color: #555;
+.info-projeto li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #ffffff;
+}
+
+@media (max-width: 1200px) {
+  .grid-vitrine {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .grid-vitrine {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .imagem-projeto {
+    height: 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-vitrine {
+    grid-template-columns: 1fr;
+  }
+
+  .imagem-projeto {
+    height: 300px;
+  }
+
+  .info-projeto h3 {
+    font-size: 20px;
+  }
 }
 
 /* ---------------- Botão ---------------- */
