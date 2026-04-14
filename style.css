@@ -332,8 +332,12 @@ footer {
 
 /* ---------------- Portfólio ---------------- */
 .portfolio-vitrine {
-  background: #f3f3f3;
-  padding: 70px 20px 90px;
+  padding: 80px 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+  gap: 10px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .portfolio-vitrine h2 {
