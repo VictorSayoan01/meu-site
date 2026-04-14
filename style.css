@@ -33,7 +33,7 @@ body {
   display: grid;
   grid-template-columns: 240px 1fr 240px;
   align-items: center;
-  background: #000;
+  background: #0e0d0d;
   box-shadow: 0 2px 10px rgba(0,0,0,0.18);
 }
 
@@ -70,7 +70,7 @@ body {
 .menu-centro a {
   position: relative;
   text-decoration: none;
-  color: #fff;
+  color: #eff0f3;
   font-size: 16px;
   font-weight: 600;
   padding: 32px 0;
@@ -360,7 +360,7 @@ footer {
 
 .projeto-vitrine:hover {
   transform: translateY(-6px);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.18);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
 }
 
 .imagem-projeto {
@@ -2217,4 +2217,448 @@ border-radius:6px;
 font-size:16px;
 font-weight:bold;
 cursor:pointer;
+}
+
+/* ===== Página do Projeto de Média Tensão - São Vicente do Seridó ===== */
+.topo-projeto {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: #0a0a0a;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+}
+
+.topo-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 86px;
+  display: grid;
+  grid-template-columns: 220px 1fr 160px;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.logo-topo {
+  max-height: 42px;
+  width: auto;
+}
+
+.menu-projeto ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 34px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-projeto a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.btn-voltar-topo {
+  justify-self: end;
+  text-decoration: none;
+  color: #111;
+  background: #f3f3f3;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.hero-projeto-premium {
+  min-height: 88vh;
+  background:
+    linear-gradient(rgba(0,20,40,0.55), rgba(0,20,40,0.70)),
+    url("../assets/img/rede_media_tensao/RENDER_MEDIA_TENSAO_SERIDÓ.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.hero-overlay {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  display: grid;
+  grid-template-columns: 1.2fr 420px;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-conteudo {
+  color: #fff;
+}
+
+.tag-hero {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero-conteudo h1 {
+  font-size: 64px;
+  line-height: 1.05;
+  margin-bottom: 18px;
+}
+
+.hero-conteudo p {
+  font-size: 20px;
+  max-width: 700px;
+  line-height: 1.7;
+}
+
+.box-cadastro-projeto {
+  background: rgba(255,255,255,0.96);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.20);
+}
+
+.box-cadastro-projeto h3 {
+  font-size: 24px;
+  color: #0A1F44;
+  margin-bottom: 18px;
+}
+
+.box-cadastro-projeto form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.box-cadastro-projeto input,
+.box-cadastro-projeto textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #d6dbe5;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.box-cadastro-projeto button {
+  border: none;
+  background: linear-gradient(135deg, #0A1F44, #0E3A8A);
+  color: #fff;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.secao-visao-geral,
+.secao-galeria-premium,
+.secao-diferenciais-premium,
+.secao-acompanhamento,
+.cta-final-projeto {
+  padding: 90px 20px;
+}
+
+.secao-visao-geral {
+  background: #fff;
+}
+
+.intro-projeto-premium {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+.intro-projeto-premium h2,
+.secao-galeria-premium h2,
+.secao-diferenciais-premium h2,
+.secao-acompanhamento h2,
+.cta-final-projeto h2 {
+  font-size: 38px;
+  color: #0A1F44;
+  margin-bottom: 16px;
+}
+
+.intro-projeto-premium p {
+  font-size: 18px;
+  color: #4b5563;
+  line-height: 1.8;
+}
+
+.grid-resumo {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.resumo-item {
+  background: #f5f7fb;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+}
+
+.resumo-item strong {
+  display: block;
+  color: #0A1F44;
+  margin-bottom: 8px;
+}
+
+.resumo-item span {
+  color: #4b5563;
+}
+
+.secao-galeria-premium {
+  background: linear-gradient(180deg, #f7f9fc 0%, #eef3fa 100%);
+}
+
+.bloco-projeto {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 42px;
+  align-items: center;
+  margin-bottom: 42px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 22px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.10);
+}
+
+.bloco-reverso .bloco-imagem {
+  order: 2;
+}
+
+.bloco-reverso .bloco-texto {
+  order: 1;
+}
+
+.bloco-imagem img {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+}
+
+.bloco-texto {
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  padding: 34px 32px;
+  border-radius: 18px;
+  border: 1px solid rgba(10, 31, 68, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+.bloco-texto::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90px;
+  height: 5px;
+  background: linear-gradient(135deg, #0A1F44, #1D4ED8);
+  border-radius: 18px 0 10px 0;
+}
+
+.tag-bloco {
+  display: inline-block;
+  background: linear-gradient(135deg, #0A1F44, #0E3A8A);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+
+.bloco-texto h3 {
+  font-size: 36px;
+  line-height: 1.12;
+  color: #071c45;
+  margin-bottom: 18px;
+  font-weight: 800;
+  max-width: 12ch;
+}
+
+.bloco-texto p {
+  font-size: 17px;
+  line-height: 1.85;
+  color: #334155;
+  margin-bottom: 16px;
+  max-width: 58ch;
+}
+
+.lista-destaques-projeto {
+  list-style: none;
+  padding: 0;
+  margin: 26px 0 24px;
+  display: grid;
+  gap: 12px;
+}
+
+.lista-destaques-projeto li {
+  position: relative;
+  padding: 14px 16px 14px 42px;
+  background: #ffffff;
+  border: 1px solid rgba(14, 58, 138, 0.10);
+  border-radius: 12px;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #1f2937;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(10, 31, 68, 0.05);
+}
+
+.lista-destaques-projeto li::before {
+  content: "✔";
+  position: absolute;
+  left: 16px;
+  top: 13px;
+  color: #0E3A8A;
+  font-weight: 800;
+}
+
+.frase-impacto-projeto {
+  margin-top: 24px;
+  padding: 18px 20px;
+  border-left: 5px solid #0E3A8A;
+  background: linear-gradient(135deg, rgba(10, 31, 68, 0.05), rgba(14, 58, 138, 0.10));
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 1.75;
+  font-weight: 700;
+  color: #0A1F44;
+}
+
+.secao-diferenciais-premium {
+  background: #fff;
+}
+
+.grid-diferenciais-premium {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.diferencial-card {
+  background: #f6f8fc;
+  border-radius: 16px;
+  padding: 30px;
+}
+
+.diferencial-card h3 {
+  color: #0A1F44;
+  margin-bottom: 12px;
+}
+
+.diferencial-card p {
+  color: #4b5563;
+  line-height: 1.7;
+}
+
+.secao-acompanhamento {
+  background: linear-gradient(135deg, #0A1F44, #0E3A8A);
+  color: #fff;
+  text-align: center;
+}
+
+.secao-acompanhamento h2 {
+  color: #fff;
+}
+
+.linha-etapas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 40px;
+}
+
+.etapa-item {
+  background: rgba(255,255,255,0.08);
+  padding: 28px;
+  border-radius: 18px;
+  backdrop-filter: blur(8px);
+}
+
+.etapa-item span {
+  display: inline-flex;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #0A1F44;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.cta-final-projeto {
+  background: #fff;
+  text-align: center;
+}
+
+.cta-final-projeto p {
+  max-width: 760px;
+  margin: 0 auto 22px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #4b5563;
+}
+
+.btn-cta-final {
+  display: inline-block;
+  text-decoration: none;
+  background: #25D366;
+  color: #fff;
+  font-weight: 800;
+  padding: 14px 24px;
+  border-radius: 10px;
+}
+
+@media (max-width: 980px) {
+  .topo-wrapper,
+  .hero-overlay,
+  .grid-resumo,
+  .grid-diferenciais-premium,
+  .linha-etapas,
+  .bloco-projeto {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-projeto ul {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .hero-conteudo h1 {
+    font-size: 40px;
+  }
+
+  .bloco-reverso .bloco-imagem,
+  .bloco-reverso .bloco-texto {
+    order: initial;
+  }
+
+  .bloco-imagem img {
+    min-height: 250px;
+  }
+
+  .bloco-texto {
+    padding: 24px 20px;
+  }
+
+  .bloco-texto h3 {
+    font-size: 28px;
+    max-width: none;
+  }
+
+  .bloco-texto p {
+    font-size: 16px;
+    max-width: none;
+  }
 }
