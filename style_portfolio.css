@@ -1,0 +1,250 @@
+/* ================================
+   PORTFÓLIO EM CARROSSEL
+================================ */
+
+.portfolio-carousel {
+  padding: 90px 0;
+  background: linear-gradient(180deg, #f7f9fc 0%, #eef3f8 100%);
+  overflow: hidden;
+}
+
+.portfolio-container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.portfolio-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 45px;
+}
+
+.portfolio-header span {
+  display: inline-block;
+  background: #0A1F44;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.portfolio-header h2 {
+  font-size: 42px;
+  color: #0A1F44;
+  margin-bottom: 14px;
+}
+
+.portfolio-header p {
+  font-size: 18px;
+  color: #4b5563;
+  line-height: 1.7;
+}
+
+.carousel-area {
+  position: relative;
+}
+
+.portfolio-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 6px 28px;
+  scroll-snap-type: x mandatory;
+}
+
+.portfolio-track::-webkit-scrollbar {
+  height: 8px;
+}
+
+.portfolio-track::-webkit-scrollbar-track {
+  background: #dbe3ef;
+  border-radius: 20px;
+}
+
+.portfolio-track::-webkit-scrollbar-thumb {
+  background: #0A1F44;
+  border-radius: 20px;
+}
+
+.portfolio-card {
+  flex: 0 0 360px;
+  background: #050505;
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+  scroll-snap-align: start;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 55px rgba(0,0,0,0.25);
+}
+
+.card-img {
+  position: relative;
+  height: 390px;
+  overflow: hidden;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.portfolio-card:hover .card-img img {
+  transform: scale(1.06);
+}
+
+.card-img span {
+  position: absolute;
+  top: 18px;
+  right: 0;
+  background: #000;
+  color: #fff;
+  padding: 11px 20px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+}
+
+.card-info {
+  min-height: 245px;
+  padding: 26px 26px 30px;
+  background: #000;
+}
+
+.card-info h3 {
+  font-size: 25px;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  color: #fff;
+}
+
+.card-info p {
+  font-size: 16px;
+  color: #d6d6d6;
+  margin-bottom: 16px;
+}
+
+.card-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card-info li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 10px;
+  font-size: 15.5px;
+  line-height: 1.5;
+  color: #f1f1f1;
+}
+
+.card-info li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #ffffff;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(10, 31, 68, 0.92);
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+  transition: 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: #1D4ED8;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-btn.left {
+  left: -18px;
+}
+
+.carousel-btn.right {
+  right: -18px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .portfolio-container {
+    padding: 0 24px;
+  }
+
+  .portfolio-card {
+    flex-basis: 330px;
+  }
+
+  .card-img {
+    height: 340px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .portfolio-carousel {
+    padding: 70px 0;
+  }
+
+  .portfolio-container {
+    padding: 0 16px;
+  }
+
+  .portfolio-header h2 {
+    font-size: 32px;
+  }
+
+  .portfolio-header p {
+    font-size: 16px;
+  }
+
+  .portfolio-track {
+    gap: 18px;
+    padding-bottom: 22px;
+  }
+
+  .portfolio-card {
+    flex: 0 0 88vw;
+  }
+
+  .card-img {
+    height: 280px;
+  }
+
+  .card-info {
+    min-height: auto;
+    padding: 22px 20px 26px;
+  }
+
+  .card-info h3 {
+    font-size: 23px;
+  }
+
+  .carousel-btn {
+    display: none;
+  }
+}

@@ -319,6 +319,7 @@ footer {
   transform: translateY(-3px);
 }
 
+
 /* RESPONSIVO */
 @media (max-width: 900px) {
   .sobre-wrapper {
