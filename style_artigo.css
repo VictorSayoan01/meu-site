@@ -1,0 +1,318 @@
+/* ==========================================
+   ARTIGOS TÉCNICOS PREMIUM
+========================================== */
+
+.artigos-premium{
+    position: relative;
+    padding: 120px 20px;
+    overflow: hidden;
+
+    background: #07152F;
+}
+
+.artigos-premium::before{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    top:-250px;
+    left:50%;
+    transform:translateX(-50%);
+    background:radial-gradient(circle,
+        rgba(246,196,83,.12),
+        transparent 70%);
+    pointer-events:none;
+}
+.artigos-premium .container{
+
+    position:relative;
+    z-index:2;
+
+}
+
+/* HEADER */
+
+.artigos-header{
+
+    text-align:center;
+    max-width:850px;
+    margin:auto;
+    margin-bottom:70px;
+
+}
+
+.artigos-header h2{
+
+    font-size:clamp(2.4rem,4vw,3.8rem);
+
+    color:#fff;
+
+    margin:20px 0;
+
+}
+
+.artigos-header p{
+
+    color:#dce4f2;
+
+    line-height:1.9;
+
+    font-size:1.08rem;
+
+}
+
+/* GRID */
+
+.artigos-grid{
+
+    display:grid;
+
+    grid-template-columns:1.4fr .9fr;
+
+    gap:30px;
+
+}
+
+/* CARD */
+
+.artigo-premium{
+
+    position:relative;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,255,255,.14);
+
+    border-radius:28px;
+
+    padding:42px;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+    box-shadow:0 30px 70px rgba(0,0,0,.25);
+
+}
+
+.artigo-premium::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(135deg,
+
+    rgba(246,196,83,.15),
+
+    transparent 45%);
+
+    opacity:0;
+
+    transition:.35s;
+
+}
+
+.artigo-premium:hover{
+
+    transform:translateY(-10px);
+
+    border-color:rgba(246,196,83,.40);
+
+    box-shadow:0 40px 90px rgba(0,0,0,.35);
+
+}
+
+.artigo-premium:hover::before{
+
+    opacity:1;
+
+}
+
+/* CATEGORIA */
+
+.categoria{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 20px;
+
+    background:#f6c453;
+
+    color:#07152f;
+
+    font-weight:900;
+
+    border-radius:999px;
+
+    margin-bottom:25px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/* TÍTULO */
+
+.artigo-premium h3{
+
+    position:relative;
+    z-index:2;
+
+    color:white;
+
+    font-size:1.9rem;
+
+    line-height:1.25;
+
+    margin-bottom:20px;
+
+}
+
+/* TEXTO */
+
+.artigo-premium p{
+
+    position:relative;
+    z-index:2;
+
+    color:#dce4f2;
+
+    line-height:1.9;
+
+    margin-bottom:35px;
+
+}
+
+/* BOTÃO */
+
+.artigo-premium a{
+
+    position:relative;
+    z-index:2;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    text-decoration:none;
+
+    color:#f6c453;
+
+    font-weight:800;
+
+    transition:.3s;
+
+}
+
+.artigo-premium a:hover{
+
+    letter-spacing:.3px;
+
+}
+
+.artigo-premium a i{
+
+    transition:.3s;
+
+}
+
+.artigo-premium:hover a i{
+
+    transform:translateX(8px);
+
+}
+
+/* CARD DESTAQUE */
+
+.artigo-premium.destaque{
+
+    border:2px solid rgba(246,196,83,.35);
+
+    background:
+
+    linear-gradient(135deg,
+
+    rgba(246,196,83,.08),
+
+    rgba(255,255,255,.08));
+
+}
+
+.artigo-premium.destaque::after{
+
+    content:"ARTIGO EM DESTAQUE";
+
+    position:absolute;
+
+    top:22px;
+
+    right:-42px;
+
+    background:#f6c453;
+
+    color:#07152f;
+
+    font-size:.72rem;
+
+    font-weight:900;
+
+    padding:8px 50px;
+
+    transform:rotate(40deg);
+
+}
+
+/* RESPONSIVO */
+
+@media(max-width:950px){
+
+    .artigos-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:650px){
+
+    .artigos-premium{
+
+        padding:80px 20px;
+
+    }
+
+    .artigo-premium{
+
+        padding:30px 24px;
+
+    }
+
+    .artigo-premium h3{
+
+        font-size:1.5rem;
+
+    }
+
+    .artigo-premium.destaque::after{
+
+        display:none;
+
+    }
+
+}
+
