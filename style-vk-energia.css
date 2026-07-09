@@ -1,0 +1,687 @@
+/* =========================
+ÁREA DO CLIENTE - VK ENERGIA
+========================= */
+
+.hero-area-cliente {
+  min-height: 90vh;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(246,196,83,.18), transparent 28%),
+    linear-gradient(135deg, #061226 0%, #0A1F44 55%, #07152f 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 110px 20px;
+}
+
+.hero-area-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-area-texto h1 {
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 1;
+  margin-bottom: 24px;
+  color: #fff;
+}
+
+.hero-area-texto p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #e8edf7;
+  max-width: 760px;
+  margin-bottom: 30px;
+}
+
+.hero-area-card {
+  background: rgba(255,255,255,.09);
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 28px;
+  padding: 26px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 35px 90px rgba(0,0,0,.35);
+}
+
+.dashboard-fake {
+  background: rgba(255,255,255,.96);
+  color: #0A1F44;
+  border-radius: 22px;
+  padding: 30px;
+}
+
+.dash-topo {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.dash-topo span {
+  width: 12px;
+  height: 12px;
+  background: #f6c453;
+  border-radius: 50%;
+}
+
+.dashboard-fake h3 {
+  font-size: 1.8rem;
+  margin-bottom: 22px;
+  color: #0A1F44;
+}
+
+.dash-metricas {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.dash-metricas div {
+  background: #f5f7fb;
+  border-radius: 16px;
+  padding: 18px;
+  border-left: 4px solid #f6c453;
+}
+
+.dash-metricas small {
+  display: block;
+  color: #5a667a;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.dash-metricas strong {
+  display: block;
+  color: #0A1F44;
+  font-size: 1.35rem;
+}
+
+.dash-barra {
+  height: 12px;
+  background: #e6ebf3;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 22px;
+}
+
+.dash-barra span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(135deg, #0A1F44, #f6c453);
+  border-radius: 999px;
+}
+
+.dashboard-fake p {
+  color: #4d5b72;
+  line-height: 1.7;
+}
+
+.sobre-vk-energia {
+  padding: 95px 20px;
+  background: #fff;
+}
+
+.cta-area-cliente {
+  text-align: center;
+  padding: 100px 20px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(246,196,83,.18), transparent 32%),
+    linear-gradient(135deg, #07152f, #0A1F44);
+  color: #fff;
+}
+
+.cta-area-cliente h2 {
+  color: #fff;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  margin-bottom: 18px;
+}
+
+.cta-area-cliente p {
+  max-width: 760px;
+  margin: 0 auto 30px;
+  color: #dce4f2;
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 1000px) {
+  .hero-area-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-area-texto {
+    text-align: center;
+  }
+
+  .hero-area-texto p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-selos,
+  .hero-botoes {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 650px) {
+  .hero-area-cliente {
+    padding: 85px 20px;
+  }
+
+  .dashboard-fake {
+    padding: 22px;
+  }
+
+  .hero-area-texto h1 {
+    font-size: 3rem;
+  }
+}
+
+/* MELHORIA VISUAL DO DASHBOARD VK ENERGIA */
+
+.dashboard-fake {
+  position: relative;
+  min-height: 420px;
+  background: #f8fafc;
+  color: #0A1F44;
+  border-radius: 22px;
+  padding: 34px;
+  overflow: hidden;
+}
+
+.dashboard-fake::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(29,78,216,.12), transparent 28%),
+    radial-gradient(circle at 20% 90%, rgba(246,196,83,.16), transparent 30%);
+  pointer-events: none;
+}
+
+.dashboard-fake h3,
+.dash-topo,
+.dash-metricas,
+.dash-barra,
+.dashboard-fake p {
+  position: relative;
+  z-index: 2;
+}
+
+.dash-metricas {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.dash-metricas div:nth-child(3) {
+  grid-column: span 2;
+  background: linear-gradient(135deg, #ecfdf5, #ffffff);
+  border-left-color: #22c55e;
+}
+
+.dash-metricas div:nth-child(3) strong {
+  color: #16a34a;
+}
+
+.dashboard-fake::after {
+  content: "";
+  position: absolute;
+  left: 34px;
+  right: 34px;
+  bottom: 92px;
+  height: 90px;
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(10,31,68,.05) 100%),
+    repeating-linear-gradient(
+      to right,
+      transparent 0 42px,
+      rgba(10,31,68,.08) 43px 44px
+    );
+  border-radius: 18px;
+  opacity: .75;
+}
+
+/* =========================
+COMO ACESSAR - VK ENERGIA
+========================= */
+
+.como-acessar-vk {
+  padding: 100px 20px;
+  background: #f8f9fc;
+}
+
+.grid-como-acessar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.card-acesso {
+  background: #fff;
+  padding: 34px 26px;
+  border-radius: 22px;
+  border: 1px solid #e8edf5;
+  box-shadow: 0 18px 45px rgba(10,31,68,.08);
+  transition: .3s ease;
+}
+
+.card-acesso:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 28px 60px rgba(10,31,68,.14);
+}
+
+.card-acesso span {
+  display: inline-flex;
+  width: 54px;
+  height: 54px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #0A1F44;
+  color: #f6c453;
+  font-weight: 900;
+  margin-bottom: 22px;
+}
+
+.card-acesso h3 {
+  color: #0A1F44;
+  margin-bottom: 14px;
+  font-size: 1.25rem;
+}
+
+.card-acesso p {
+  color: #5a667a;
+  line-height: 1.7;
+}
+
+@media (max-width: 1000px) {
+  .grid-como-acessar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .grid-como-acessar {
+    grid-template-columns: 1fr;
+  }
+
+  .como-acessar-vk {
+    padding: 75px 20px;
+  }
+}
+
+/* =========================
+ECONOMIA VK ENERGIA
+========================= */
+
+.economia-vk {
+  padding: 110px 20px;
+  background: linear-gradient(
+    135deg,
+    #07152f 0%,
+    #0A1F44 100%
+  );
+}
+
+.economia-vk .section-header h2,
+.economia-vk .section-header p {
+  color: #fff;
+}
+
+.economia-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.economia-card {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 24px;
+  padding: 32px;
+  backdrop-filter: blur(10px);
+}
+
+.economia-card i {
+  color: #f6c453;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.economia-card h3 {
+  color: white;
+  margin-bottom: 12px;
+}
+
+.economia-card p {
+  color: #d7e0ef;
+}
+
+.economia-card.destaque {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.economia-card.destaque strong {
+  font-size: 4rem;
+  color: #f6c453;
+  line-height: 1;
+}
+
+.economia-card.destaque span {
+  color: #fff;
+  margin-top: 12px;
+}
+
+@media (max-width: 900px) {
+
+  .economia-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .economia-card.destaque {
+    grid-column: span 1;
+  }
+
+}
+
+/* =========================
+CASOS DE SUCESSO
+========================= */
+
+.casos-sucesso-vk {
+  padding: 100px 20px;
+  background: #f8f9fc;
+}
+
+.grid-casos-sucesso {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.caso-card {
+  background: white;
+  border-radius: 24px;
+  padding: 35px;
+  box-shadow: 0 20px 50px rgba(10,31,68,.08);
+  transition: .3s;
+}
+
+.caso-card:hover {
+  transform: translateY(-8px);
+}
+
+.caso-setor {
+  display: inline-block;
+  background: rgba(246,196,83,.15);
+  color: #0A1F44;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.caso-card h3 {
+  font-size: 2.4rem;
+  color: #0A1F44;
+  margin-bottom: 15px;
+}
+
+.caso-card p {
+  color: #5a667a;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.caso-card strong {
+  color: #0A1F44;
+}
+
+@media (max-width: 900px) {
+  .grid-casos-sucesso {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+POR QUE ESCOLHER A VK
+========================= */
+
+.porque-vk {
+  padding: 110px 20px;
+  background: #ffffff;
+}
+
+.grid-porque-vk {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.item-vk {
+  background: #f8f9fc;
+  padding: 35px;
+  border-radius: 22px;
+  transition: .3s;
+  border: 1px solid #edf1f7;
+}
+
+.item-vk:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(10,31,68,.10);
+}
+
+.item-vk i {
+  font-size: 2rem;
+  color: #f6c453;
+  margin-bottom: 20px;
+}
+
+.item-vk h3 {
+  color: #0A1F44;
+  margin-bottom: 15px;
+}
+
+.item-vk p {
+  color: #5a667a;
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .grid-porque-vk {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+QUEM UTILIZA VK ENERGIA
+========================= */
+
+.quem-utiliza-vk {
+  padding: 110px 20px;
+  background: #f8f9fc;
+}
+
+.grid-segmentos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.segmento-card {
+  background: white;
+  border-radius: 24px;
+  padding: 35px 25px;
+  text-align: center;
+  border: 1px solid #edf1f7;
+  transition: .3s ease;
+}
+
+.segmento-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 55px rgba(10,31,68,.10);
+}
+
+.segmento-card i {
+  font-size: 2.5rem;
+  color: #f6c453;
+  margin-bottom: 20px;
+}
+
+.segmento-card h3 {
+  color: #0A1F44;
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
+.segmento-card p {
+  color: #5a667a;
+  line-height: 1.6;
+  font-size: .95rem;
+}
+
+@media (max-width: 1100px) {
+
+  .grid-segmentos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .grid-segmentos {
+    grid-template-columns: 1fr;
+  }
+
+  .quem-utiliza-vk {
+    padding: 80px 20px;
+  }
+
+}
+
+/* =========================
+FAQ VK ENERGIA
+========================= */
+
+.faq-vk {
+  padding: 110px 20px;
+  background: #ffffff;
+}
+
+.faq-lista {
+  max-width: 950px;
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+}
+
+.faq-item {
+  background: #f8f9fc;
+  border: 1px solid #edf1f7;
+  border-radius: 20px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 14px 35px rgba(10,31,68,.06);
+}
+
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 24px 28px;
+  font-weight: 800;
+  color: #0A1F44;
+  position: relative;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #f6c453;
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-item p {
+  padding: 0 28px 26px;
+  color: #5a667a;
+  line-height: 1.7;
+}
+
+@media (max-width: 650px) {
+  .faq-vk {
+    padding: 80px 20px;
+  }
+
+  .faq-item summary {
+    padding: 22px 52px 22px 22px;
+  }
+
+  .faq-item p {
+    padding: 0 22px 24px;
+  }
+}
+
+/* =========================
+NÚMEROS VK ENGENHARIA
+========================= */
+
+.numeros-vk {
+  padding: 80px 20px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(246,196,83,.18), transparent 28%),
+    linear-gradient(135deg, #07152f, #0A1F44);
+}
+
+.numeros-vk-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.numero-vk-card {
+  text-align: center;
+  padding: 34px 22px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  backdrop-filter: blur(10px);
+}
+
+.numero-vk-card strong {
+  display: block;
+  color: #f6c453;
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.numero-vk-card span {
+  color: #fff;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .numeros-vk-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .numeros-vk-grid {
+    grid-template-columns: 1fr;
+  }
+}

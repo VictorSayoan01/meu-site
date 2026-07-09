@@ -1,4 +1,51 @@
 // ============================
+// TIMELINE DE BANNERS DO HEADER
+// ============================
+
+const heroSlides = document.querySelectorAll('.hero-slide');
+const heroTimelineItems = document.querySelectorAll('.hero-timeline-item');
+let heroSlideAtual = 0;
+let heroIntervalo;
+
+function mostrarHeroSlide(indice){
+
+  if(!heroSlides.length || !heroTimelineItems.length) return;
+
+  heroSlides[heroSlideAtual].classList.remove('ativo');
+  heroTimelineItems[heroSlideAtual].classList.remove('ativo');
+
+  heroSlideAtual = (indice + heroSlides.length) % heroSlides.length;
+
+  heroSlides[heroSlideAtual].classList.add('ativo');
+  heroTimelineItems[heroSlideAtual].classList.add('ativo');
+
+}
+
+function iniciarHeroTimeline(){
+
+  if(heroSlides.length <= 1) return;
+
+  clearInterval(heroIntervalo);
+  heroIntervalo = setInterval(() => {
+    mostrarHeroSlide(heroSlideAtual + 1);
+  }, 7000);
+
+}
+
+heroTimelineItems.forEach(item => {
+
+  item.addEventListener('click', () => {
+    const indice = Number(item.dataset.heroSlide);
+    mostrarHeroSlide(indice);
+    iniciarHeroTimeline();
+  });
+
+});
+
+iniciarHeroTimeline();
+
+
+// ============================
 // ENVIO DE FORMULÁRIO WHATSAPP
 // ============================
 

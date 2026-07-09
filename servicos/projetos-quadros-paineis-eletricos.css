@@ -1,0 +1,663 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1f2937;
+  background: #ffffff;
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 92%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(10, 31, 68, 0.96);
+  z-index: 999;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+.header-container {
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.menu {
+  display: flex;
+  gap: 28px;
+}
+
+.menu a {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: #f59e0b;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero-quadros {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(rgba(5, 18, 42, 0.78), rgba(5, 18, 42, 0.78)),
+    url("../assets/img/quadros-paineis-eletricos.jpg");
+  background-size: cover;
+  background-position: center;
+  padding-top: 90px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  color: #ffffff;
+}
+
+.tag-hero {
+  display: inline-block;
+  background: rgba(245, 158, 11, 0.14);
+  border: 1px solid rgba(245, 158, 11, 0.55);
+  color: #fbbf24;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4.8rem);
+  line-height: 1.08;
+  margin-bottom: 24px;
+  font-weight: 800;
+}
+
+.hero-content p {
+  font-size: 1.18rem;
+  max-width: 760px;
+  color: #e5e7eb;
+  margin-bottom: 36px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 15px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: 0.3s ease;
+}
+
+.btn-primary {
+  background: #f59e0b;
+  color: #0a1f44;
+}
+
+.btn-primary:hover {
+  background: #fbbf24;
+  transform: translateY(-3px);
+}
+
+.btn-secondary {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  background: #ffffff;
+  color: #0a1f44;
+}
+
+/* =========================
+   SEÇÕES GERAIS
+========================= */
+
+section {
+  padding: 95px 0;
+}
+
+.subtitulo,
+.titulo-secao span {
+  display: inline-block;
+  color: #f59e0b;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.82rem;
+  margin-bottom: 12px;
+}
+
+.titulo-secao {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 55px;
+}
+
+.titulo-secao h2 {
+  color: #0a1f44;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.titulo-secao p {
+  color: #4b5563;
+  font-size: 1.05rem;
+}
+
+/* =========================
+   INTRODUÇÃO
+========================= */
+
+.intro-section {
+  background: #f8fafc;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.intro-text h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #0a1f44;
+  line-height: 1.2;
+  margin-bottom: 22px;
+}
+
+.intro-text p {
+  margin-bottom: 18px;
+  color: #374151;
+  text-align: justify;
+}
+
+.intro-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 42px;
+  box-shadow: 0 20px 45px rgba(10, 31, 68, 0.12);
+  border-top: 5px solid #f59e0b;
+}
+
+.intro-card i {
+  font-size: 3rem;
+  color: #f59e0b;
+  margin-bottom: 24px;
+}
+
+.intro-card h3 {
+  font-size: 1.6rem;
+  color: #0a1f44;
+  margin-bottom: 14px;
+}
+
+.intro-card p {
+  color: #4b5563;
+}
+
+/* =========================
+   SERVIÇOS
+========================= */
+
+.servicos-section {
+  background: #ffffff;
+}
+
+.grid-servicos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.card-servico {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 34px 28px;
+  border-radius: 18px;
+  transition: 0.3s;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+}
+
+.card-servico:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 45px rgba(15, 23, 42, 0.12);
+  border-color: #f59e0b;
+}
+
+.card-servico i {
+  font-size: 2.3rem;
+  color: #f59e0b;
+  margin-bottom: 20px;
+}
+
+.card-servico h3 {
+  color: #0a1f44;
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.card-servico p {
+  color: #4b5563;
+  font-size: 0.98rem;
+  text-align: justify;
+}
+
+/* =========================
+   TIPOS
+========================= */
+
+.tipos-section {
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+.lista-tipos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.tipo-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #ffffff;
+  padding: 20px 24px;
+  border-radius: 14px;
+  border-left: 5px solid #f59e0b;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.07);
+}
+
+.tipo-item i {
+  color: #16a34a;
+  font-size: 1.1rem;
+}
+
+.tipo-item span {
+  color: #0a1f44;
+  font-weight: 700;
+}
+
+/* =========================
+   EXECUÇÃO
+========================= */
+
+.execucao-section {
+  background: #0a1f44;
+  color: #ffffff;
+}
+
+.execucao-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.execucao-card {
+  background: rgba(255,255,255,0.06);
+  padding: 42px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.execucao-card span {
+  color: #fbbf24;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  letter-spacing: 1px;
+}
+
+.execucao-card h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  margin: 14px 0 22px;
+}
+
+.execucao-card p {
+  color: #e5e7eb;
+  margin-bottom: 18px;
+  text-align: justify;
+}
+
+.execucao-lista {
+  background: #ffffff;
+  color: #0a1f44;
+  padding: 36px;
+  border-radius: 22px;
+}
+
+.execucao-lista h3 {
+  font-size: 1.5rem;
+  margin-bottom: 22px;
+}
+
+.execucao-lista ul {
+  list-style: none;
+}
+
+.execucao-lista li {
+  padding: 10px 0 10px 28px;
+  position: relative;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.execucao-lista li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #16a34a;
+  font-weight: 900;
+}
+
+/* =========================
+   DIFERENCIAIS
+========================= */
+
+.diferenciais-section {
+  background: #ffffff;
+}
+
+.grid-diferenciais {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.card-diferencial {
+  padding: 34px 28px;
+  background: #f8fafc;
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+  transition: 0.3s;
+}
+
+.card-diferencial:hover {
+  background: #ffffff;
+  transform: translateY(-6px);
+  box-shadow: 0 22px 40px rgba(15, 23, 42, 0.10);
+}
+
+.card-diferencial i {
+  font-size: 2.2rem;
+  color: #f59e0b;
+  margin-bottom: 20px;
+}
+
+.card-diferencial h3 {
+  color: #0a1f44;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.card-diferencial p {
+  color: #4b5563;
+  font-size: 0.97rem;
+  text-align: justify;
+}
+
+.normas-box {
+  margin-top: 42px;
+  background: #0a1f44;
+  color: #ffffff;
+  padding: 28px 32px;
+  border-radius: 16px;
+  border-left: 6px solid #f59e0b;
+  font-size: 1.02rem;
+}
+
+.normas-box strong {
+  color: #fbbf24;
+}
+
+/* =========================
+   PROCESSO
+========================= */
+
+.processo-section {
+  background: #f8fafc;
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 22px;
+}
+
+.timeline-item {
+  background: #ffffff;
+  padding: 30px 24px;
+  border-radius: 18px;
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
+  position: relative;
+  border-top: 5px solid #f59e0b;
+}
+
+.timeline-item span {
+  display: inline-flex;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  background: #0a1f44;
+  color: #ffffff;
+  border-radius: 50%;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.timeline-item h3 {
+  color: #0a1f44;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.timeline-item p {
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+/* =========================
+   CTA FINAL
+========================= */
+
+.cta-final {
+  background:
+    linear-gradient(rgba(10, 31, 68, 0.92), rgba(10, 31, 68, 0.92)),
+    url("../assets/img/painel-eletrico-industrial.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 850px;
+}
+
+.cta-content span {
+  color: #fbbf24;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.cta-content h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.2;
+  margin: 16px 0 20px;
+}
+
+.cta-content p {
+  color: #e5e7eb;
+  margin-bottom: 32px;
+  font-size: 1.08rem;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  background: #06152e;
+  color: #cbd5e1;
+  text-align: center;
+  padding: 26px 0;
+  font-size: 0.92rem;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 1024px) {
+  .grid-servicos,
+  .grid-diferenciais {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .intro-grid,
+  .execucao-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    height: auto;
+    padding: 18px 0;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .hero-quadros {
+    min-height: 90vh;
+    padding-top: 150px;
+  }
+
+  .grid-servicos,
+  .grid-diferenciais,
+  .lista-tipos,
+  .timeline {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 70px 0;
+  }
+
+  .intro-card,
+  .execucao-card,
+  .execucao-lista {
+    padding: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2.25rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.card-link {
+  display: block;
+  color: inherit;
+  position: relative;
+}
+
+.card-link strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  color: #f59e0b;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.card-link strong i {
+  font-size: 0.9rem;
+  transition: 0.3s ease;
+}
+
+.card-link:hover strong i {
+  transform: translateX(6px);
+}
+
+.card-link:hover h3 {
+  color: #f59e0b;
+}

@@ -5,20 +5,44 @@ HOME PREMIUM - VK ENGENHARIA
 .hero-premium {
 position: relative;
 min-height: 100vh;
-background:
-linear-gradient(rgba(5, 14, 32, 0.78), rgba(5, 14, 32, 0.9)),
-url("assets/img/subestacao_2,5MVA/RENDER_SUBESTACAO_2,5_MVA_01.jpg");
-background-size: cover;
-background-position: center;
-display: flex;
-align-items: center;
-padding: 140px 20px 90px;
+overflow: hidden;
 color: #fff;
 }
 
+.hero-slider {
+position: relative;
+min-height: 100vh;
+}
+
+.hero-slide {
+position: absolute;
+inset: 0;
+display: flex;
+align-items: flex-start;
+padding: 140px 20px 90px;
+background:
+linear-gradient(rgba(5, 14, 32, 0.76), rgba(5, 14, 32, 0.9)),
+var(--hero-bg);
+background-size: cover;
+background-position: center;
+opacity: 0;
+visibility: hidden;
+transform: scale(1.02);
+transition: opacity .75s ease, transform 1.2s ease, visibility .75s ease;
+}
+
+.hero-slide.ativo {
+opacity: 1;
+visibility: visible;
+transform: scale(1);
+z-index: 1;
+}
+
 .hero-content {
+width: min(1120px, 100%);
 max-width: 1120px;
 margin: 0 auto;
+padding: 0;
 position: relative;
 z-index: 2;
 }
@@ -70,6 +94,86 @@ backdrop-filter: blur(6px);
 display: flex;
 gap: 16px;
 flex-wrap: wrap;
+}
+
+.hero-timeline {
+position: absolute;
+left: 50%;
+bottom: 36px;
+z-index: 3;
+width: min(1120px, calc(100% - 40px));
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 14px;
+transform: translateX(-50%);
+}
+
+.hero-timeline-item {
+position: relative;
+overflow: hidden;
+display: flex;
+align-items: center;
+gap: 12px;
+min-height: 58px;
+padding: 12px 16px;
+border: 1px solid rgba(255,255,255,.22);
+border-radius: 12px;
+background: rgba(255,255,255,.1);
+color: #fff;
+text-align: left;
+cursor: pointer;
+backdrop-filter: blur(8px);
+transition: .3s ease;
+}
+
+.hero-timeline-item::before {
+content: "";
+position: absolute;
+left: 0;
+bottom: 0;
+height: 3px;
+width: 100%;
+background: rgba(255,255,255,.18);
+}
+
+.hero-timeline-item::after {
+content: "";
+position: absolute;
+left: 0;
+bottom: 0;
+height: 3px;
+width: 0;
+background: #f6c453;
+}
+
+.hero-timeline-item.ativo {
+border-color: rgba(246,196,83,.72);
+background: rgba(10,31,68,.64);
+}
+
+.hero-timeline-item.ativo::after {
+animation: heroTimeline 7s linear forwards;
+}
+
+.hero-timeline-item span {
+color: #f6c453;
+font-weight: 900;
+font-size: .86rem;
+}
+
+.hero-timeline-item strong {
+font-size: .98rem;
+line-height: 1.2;
+}
+
+@keyframes heroTimeline {
+from {
+width: 0;
+}
+
+to {
+width: 100%;
+}
 }
 
 .btn-primario,
@@ -395,6 +499,13 @@ grid-template-columns: 1fr;
 
 .hero-premium {
 min-height: auto;
+}
+
+.hero-slider {
+min-height: 760px;
+}
+
+.hero-slide {
 padding-top: 150px;
 }
 }
@@ -406,6 +517,25 @@ font-size: 2.2rem;
 
 .hero-premium p {
 font-size: 1rem;
+}
+
+.hero-slider {
+min-height: 820px;
+}
+
+.hero-slide {
+align-items: flex-start;
+padding: 135px 20px 185px;
+}
+
+.hero-timeline {
+grid-template-columns: 1fr;
+bottom: 24px;
+}
+
+.hero-timeline-item {
+min-height: 52px;
+padding: 12px 14px;
 }
 
 .grid-autoridade,
@@ -631,5 +761,81 @@ padding: 34px 24px;
 .projeto-destaque-img {
 min-height: 260px;
 }
+}
+
+/* =========================
+BOTÃO ÁREA DO CLIENTE NO TOPO
+========================= */
+
+.header-direita-cliente {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+}
+
+.btn-area-cliente {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 15px;
+
+  padding: 14px 22px;
+  border-radius: 999px;
+
+  border: 1.5px solid #f6c453;
+  background: rgba(246, 196, 83, 0.06);
+
+  transition: 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-area-cliente i {
+  color: #f6c453;
+  font-size: 16px;
+}
+
+.btn-area-cliente:hover,
+.btn-area-cliente.ativo {
+  background: #f6c453;
+  color: #0A1F44;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(246,196,83,.25);
+}
+
+.btn-area-cliente:hover i,
+.btn-area-cliente.ativo i {
+  color: #0A1F44;
+}
+
+/* Ajuste do header para comportar o botão lateral */
+
+.topo-site {
+  grid-template-columns: 220px 1fr 260px;
+}
+
+/* Responsivo */
+
+@media (max-width: 1100px) {
+  .topo-site {
+    grid-template-columns: 1fr;
+    padding: 18px 20px;
+    gap: 14px;
+  }
+
+  .header-direita-cliente {
+    padding: 0;
+  }
+
+  .btn-area-cliente {
+    width: auto;
+    padding: 12px 20px;
+  }
 }
 
