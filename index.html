@@ -49,39 +49,74 @@
 
 <body>
 
-<header class="topo-site">
-  <div class="header-esquerda">
-    <a href="index.html">
-      <img src="assets/img/logo branca sem fundo.png" alt="Logo VK Engenharia" class="logo-topo">
+<aside class="sidebar-site" id="sidebarSite" aria-label="Navegação principal">
+  <div class="sidebar-topo">
+    <a href="index.html" class="sidebar-logo" aria-label="Página inicial da VK Engenharia">
+      <img src="assets/img/logo branca sem fundo.png" alt="Logo VK Engenharia">
     </a>
+
+    <button
+      class="sidebar-toggle"
+      id="sidebarToggle"
+      type="button"
+      aria-label="Abrir menu de navegação"
+      aria-controls="sidebarSite"
+      aria-expanded="false"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
   </div>
 
-  <nav class="menu-centro">
-    <ul>
-      <li><a href="index.html#especialidades">Serviços</a></li>
+  <nav class="sidebar-menu">
+    <a href="index.html#especialidades">
+      <i class="fas fa-bolt"></i>
+      <span>Serviços</span>
+    </a>
 
-      <li>
-        <a href="consultoria-gestao-energia.html">
-          Gestão Elétrica
-        </a>
-      </li>
+    <a href="consultoria-gestao-energia.html">
+      <i class="fas fa-chart-pie"></i>
+      <span>Gestão Elétrica</span>
+    </a>
 
-      <li><a href="servicos/projetos-quadros-paineis-eletricos.html">VK - Painéis Elétricos</a></li>
+    <a href="servicos/projetos-quadros-paineis-eletricos.html">
+      <i class="fas fa-industry"></i>
+      <span>VK - Painéis Elétricos</span>
+    </a>
 
-      <li><a href="index.html#Portifolio">Projetos Executados</a></li>
-      <li><a href="index.html#artigos-tecnicos">Artigos Técnicos</a></li>
-      <li><a href="index.html#sobre">Sobre</a></li>
-      <li><a href="index.html#contato" class="btn-menu">Solicitar Orçamento</a></li>
-    </ul>
+    <a href="index.html#Portifolio">
+      <i class="fas fa-folder-open"></i>
+      <span>Projetos Executados</span>
+    </a>
+
+    <a href="index.html#artigos-tecnicos">
+      <i class="fas fa-book-open"></i>
+      <span>Artigos Técnicos</span>
+    </a>
+
+    <a href="index.html#sobre">
+      <i class="fas fa-user-tie"></i>
+      <span>Sobre</span>
+    </a>
+
+    <a href="index.html#contato" class="sidebar-orcamento">
+      <i class="fas fa-file-signature"></i>
+      <span>Solicitar Orçamento</span>
+    </a>
   </nav>
 
-  <div class="header-direita-cliente">
-    <a href="vk-energia.html" class="btn-area-cliente ativo">
+  <div class="sidebar-rodape">
+    <a href="vk-energia.html" class="sidebar-energia">
       <i class="fas fa-chart-line"></i>
-      VK Energia
+      <span>VK Energia</span>
     </a>
   </div>
-</header>
+</aside>
+
+<button class="sidebar-mobile-toggle" id="sidebarMobileToggle" type="button" aria-label="Abrir menu">
+  <i class="fas fa-bars"></i>
+</button>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 
 <section class="hero-premium" aria-label="Destaques VK Engenharia">
   <div class="hero-slider">
@@ -920,6 +955,51 @@ target="_blank">
       mensagemSucesso.innerHTML = "❌ Não foi possível enviar. Tente novamente ou fale pelo WhatsApp.";
     }
   });
+</script>
+
+<script>
+  (() => {
+    const sidebar = document.getElementById("sidebarSite");
+    const toggle = document.getElementById("sidebarToggle");
+    const mobileToggle = document.getElementById("sidebarMobileToggle");
+    const overlay = document.getElementById("sidebarOverlay");
+
+    if (!sidebar || !toggle || !mobileToggle || !overlay) return;
+
+    const setOpen = (open) => {
+      sidebar.classList.toggle("aberta", open);
+      document.body.classList.toggle("sidebar-aberta", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Recolher menu de navegação" : "Abrir menu de navegação");
+      toggle.innerHTML = open
+        ? '<i class="fas fa-chevron-left"></i>'
+        : '<i class="fas fa-bars"></i>';
+    };
+
+    toggle.addEventListener("click", () => {
+      setOpen(!sidebar.classList.contains("aberta"));
+    });
+
+    mobileToggle.addEventListener("click", () => setOpen(true));
+    overlay.addEventListener("click", () => setOpen(false));
+
+    sidebar.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth <= 900) setOpen(false);
+      });
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setOpen(false);
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 900) {
+        document.body.classList.remove("sidebar-aberta");
+        overlay.classList.remove("ativo");
+      }
+    });
+  })();
 </script>
 
 </body>
